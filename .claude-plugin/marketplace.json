@@ -1,0 +1,20 @@
+{
+  "name": "ownmydata",
+  "description": "Own your health data: a personal health vault plugin.",
+  "owner": {
+    "name": "Shahed Khalili / Parallel79",
+    "email": "shahed@parallel79.com"
+  },
+  "plugins": [
+    {
+      "name": "ownmydata",
+      "source": "./",
+      "description": "Keeps a personal health vault in plain markdown. Drop in a document or say what happened; Claude files it, links it, and answers from it with the source named.",
+      "version": "0.1.0",
+      "author": {
+        "name": "Shahed Khalili / Parallel79"
+      },
+      "license": "MIT"
+    }
+  ]
+}

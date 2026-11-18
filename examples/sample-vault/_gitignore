@@ -1,0 +1,7 @@
+# Health vault: keep health data out of any git remote.
+# Written by /ownmydata:setup-health-vault in case this folder is ever put under git.
+memory/
+data/
+outputs/
+trash/
+.DS_Store

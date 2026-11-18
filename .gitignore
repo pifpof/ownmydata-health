@@ -1,0 +1,22 @@
+# Scratch test vault: fixtures only, never committed
+.test-vault/
+.test-vault-*/
+
+# Build output
+dist/
+.build-tmp/
+
+# macOS / editors
+.DS_Store
+.claude/
+.obsidian/
+
+# Anything marked local
+*.local.*
+
+# Safety net: real vault content must never be committed outside examples/
+/memory/
+/data/
+/outputs/
+/trash/
+.venv/
