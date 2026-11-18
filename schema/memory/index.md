@@ -18,7 +18,7 @@ This folder is an Open Knowledge Format (v0.2) bundle holding one person's healt
 - [Allergies](./allergies/index.md): Allergies and intolerances.
 - [Immunizations](./immunizations/index.md): Vaccines received.
 - [Plans](./plans/index.md): Care plans and goals (later versions).
-- [Family history](./family-history/index.md): Relatives' health history (later versions).
+- [Family history](./family-history/index.md): Relatives' health history, one file per relative.
 - [Documents](./documents/index.md): One record per stored original, by year.
 - [Observations](./observations/index.md): One-off measurements; ledgers and series in later versions.
 - [Library](./library/index.md): Questions for doctors and research notes.

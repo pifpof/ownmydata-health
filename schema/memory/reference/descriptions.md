@@ -8,7 +8,7 @@ generated:
   by: "ownmydata plugin"
   at: "2026-11-18"
 sources:
-  - resource: "ownmydata plugin v0.1.0"
+  - resource: "ownmydata plugin v0.2.0"
 ---
 
 # Description templates
@@ -26,6 +26,9 @@ The `description` field is the line that appears in the folder index. It is what
 | immunization | `date · vaccine · dose` | `2026-10-01 · Influenza vaccine · dose not stated` |
 | observation | `date · what · value unit · flag` | `2026-11-02 · Blood pressure (pharmacy) · 128/82 mmHg` |
 | document-reference | `date · kind · issuer` | `2026-10-14 · Lab report PDF · Example Medical Laboratory` |
+| family-member-history | `relative · conditions with onset ages · living/deceased` | `Mother · type 2 diabetes (dx ~55) · living` |
+| device | `device · since · status` | `Hearing aid, left ear · since ~2021 · in use` |
+| observation (lifestyle) | `topic · summary in their words · date said` | `Alcohol use · 2-3 drinks a week · said 2026-11-18` |
 | practitioner | `name · role or specialty · where` | `Dr. A. Example · ENT (otolaryngology) · Example ENT Clinic` |
 | organization | `name · kind · town` | `Example ENT Clinic · ENT clinic · Exampletown` |
 | episode | `status · period · anchor problem · last event` | `active · since 2026-09 · left hearing loss · last: hearing test 2026-11-18` |

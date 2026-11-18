@@ -57,6 +57,7 @@ Do these without asking:
 4. **Broken relative links** where exactly one file in the vault has the target's filename: rewrite the link to point at it. More than one candidate, or none → report it.
 5. **Missing log lines** for files that exist but were never logged: add `- **Created** [Title](./file.md): found by health check (/ownmydata:health-check)` under today.
 6. **Missing `.gitignore`** in the vault, or one missing the four lines: create or extend it.
+7. **Outdated rules files.** If the plugin's vault template (found as in `setup-health-vault` Step 4) has `memory/reference/` files with a newer plugin version in their `sources` than the vault's copies, copy them over the vault's `memory/reference/` files. They belong to the plugin, not the person. Log one line in `memory/reference/log.md`.
 
 Log each fix in the affected folder's `log.md` only if a file's content changed (indexes and the card don't need log lines).
 

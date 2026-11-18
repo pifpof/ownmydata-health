@@ -60,7 +60,7 @@ A dedicated Project keeps health sessions separate from everything else.
    This project is my personal health vault. The linked folder is the vault, and the ownmydata plugin maintains it.
 
    1. At the start of every conversation, read CLAUDE.md in the vault folder and follow it exactly. It holds the safety, privacy and filing rules. If the folder has no memory.md yet, run /ownmydata:setup-health-vault first.
-   2. Use only the ownmydata skills here (/ownmydata:capture, start, save, health-check, recenter). Never use another plugin's capture, sync, save, minutes or query skills in this project, even if a request sounds like one of theirs. Anything health-related goes into this vault and nowhere else.
+   2. Use only the ownmydata skills here (/ownmydata:capture, intake, start, save, health-check, recenter). Never use another plugin's capture, sync, save, minutes or query skills in this project, even if a request sounds like one of theirs. Anything health-related goes into this vault and nowhere else.
    3. When I drop in a document or tell you something that happened, capture it. Don't ask me to fill in details.
    4. Never write my health information to Claude's memory, to any other folder or project, or into a web search.
    5. If I describe sudden or severe symptoms, tell me to get urgent care first, before anything else.
@@ -85,6 +85,8 @@ It asks two things, your name and where the vault should live, and you're done. 
 1. **Hand it over.** Drop in a document or say what happened. `/ownmydata:capture` is there if you want it, but "add this" works. After saving, Claude lists the numbers it read so you can glance at them against the original. If one is wrong, say so and it's fixed. If you don't reply, nothing happens.
 2. **Open with `/ownmydata:start`.** A few lines on what's open: each problem being followed, its last event, and what you're waiting on.
 3. **Close with `/ownmydata:save`.** Anything you mentioned that isn't filed yet gets filed, and the summary for next time is refreshed. When you say a problem is over ("the ear thing is sorted"), save closes it with a short written conclusion.
+
+**Once, when you have 15 minutes: `/ownmydata:intake`** (or "take my health history"). Claude asks the questions a family doctor asks a new patient, one at a time: allergies, medicines, conditions, operations, family history, vaccines, check-ups, lifestyle, and, only if you say yes, mental and reproductive health. Skip anything, pause any time; every answer is saved as you go.
 
 Every so often, `/ownmydata:health-check` checks the vault and tidies its indexes. `/ownmydata:recenter` re-reads the vault's rules if a long session starts to drift.
 
@@ -131,7 +133,7 @@ How it stays trustworthy:
 
 ## Status
 
-v0.1.0. Skills: `setup-health-vault`, `capture`, `start`, `save`, `health-check`, `recenter`. Reads PDFs, photos of documents, pasted text and plain sentences.
+v0.2.0. Skills: `setup-health-vault`, `capture`, `intake`, `start`, `save`, `health-check`, `recenter`. Reads PDFs, photos of documents, pasted text and plain sentences.
 
 Planned: wearable imports into monthly ledgers, trend pages, visit-prep briefs, a question-answering skill, FHIR export and import.
 

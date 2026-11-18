@@ -125,7 +125,7 @@ Then:
 
 - `memory/patient/index.md`: under `## Files`, add `- [<Name>](./pt-self.md): The vault owner. One patient per vault.`
 - `memory/patient/log.md`: add `## <today>` and `- **Created** [<Name>](./pt-self.md): vault owner (/ownmydata:setup-health-vault)`
-- `memory/reference/log.md`: add `## <today>` and `- **Created** rules files copied from the ownmydata plugin v0.1.0 (/ownmydata:setup-health-vault)`
+- `memory/reference/log.md`: add `## <today>` and `- **Created** rules files copied from the ownmydata plugin v<version in the template's reference files> (/ownmydata:setup-health-vault)`
 - In `memory.md` and `memory/_state.md`, fill the empty `generated` fields: `by: "/ownmydata:setup-health-vault"`, `at: "<now>"`.
 
 ---
@@ -140,9 +140,10 @@ Say this, in these words or very close:
 
 ## Step 8: Close
 
-End with exactly this line and nothing after it:
+End with exactly these two lines and nothing after them:
 
 > "Drop in your first document, or tell me what's going on."
+> "When you have 15 minutes, say 'take my health history' and I'll fill in your background (allergies, conditions, family history), one question at a time."
 
 ---
 

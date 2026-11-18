@@ -35,3 +35,26 @@
 - Single-skill `.skill` install in Cowork (setup's `references/vault-template/` fallback). The build includes the template (checked with `unzip -l`), but the install wasn't exercised.
 - Cloud-sync warning path (FR1.3) and the wrong-patient guard: covered by the skill text, not by a fixture.
 - Batch capture of several files at once (FR2.13).
+
+---
+
+# Intake run: v0.2.0
+
+**Date:** 2026-11-18. One live interview, run headless on a copy of `examples/sample-vault/` (a vault set up with v0.1 rules), answering as the fictional Pat Sample. 37 turns across two sessions.
+
+| # | Check | Result |
+|---|---|---|
+| I1 | Opt-in intro, then waits for "yes" before the first question | **Pass** |
+| I2 | v0.1 vault: rules files refreshed from the plugin before the interview | **Pass** (`resource-map.md` gained the FamilyMemberHistory rules) |
+| I3 | One question per message, every turn | **Pass** |
+| I4 | Doesn't re-ask what records show (ear drops, ear wax clearing, family doctor and ENT already known) | **Pass** |
+| I5 | Follow-ups only where useful (emergency question for shellfish only, not penicillin; reason for ramipril, not vitamin D) | **Pass** |
+| I6 | An answer in one section fills another (ramipril "for blood pressure" → condition, then only "when diagnosed?") | **Pass** |
+| I7 | "pause", then "let's continue my health history" in a new session resumes at the right section | **Pass** |
+| I8 | "skip" and "next section" honoured; sections marked `skipped` | **Pass** |
+| I9 | Permission asked before substances, mental health, reproductive health; "rather not"/"no thanks" respected and marked `declined` | **Pass** |
+| I10 | Mental health record `restricted`, neutral filename and description; left out of the read-back | **Pass** |
+| I11 | Self-reported shape: `asserter`/`informationSource` Patient, no `verificationStatus`, `onsetString` for "since I was a teenager", `session:` source | **Pass** |
+| I12 | FamilyMemberHistory: `FTH` relationship, `deceasedAge` 62, `contributedToDeath`; bereavement acknowledged in a few words, not pressed | **Pass** |
+| I13 | Read-back at the end, card rebuilt (5 medications) | **Pass** |
+| I14 | `tests/check_vault.py`: 96 files, 0 errors, 0 warnings | **Pass** |

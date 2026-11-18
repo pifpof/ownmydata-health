@@ -8,7 +8,7 @@ generated:
   by: "ownmydata plugin"
   at: "2026-11-18"
 sources:
-  - resource: "ownmydata plugin v0.1.0"
+  - resource: "ownmydata plugin v0.2.0"
 ---
 
 # Record templates
@@ -330,6 +330,66 @@ fhir:
 ```
 
 Add `stale_after` (six months on) only when the person says they take it now.
+
+## FamilyMemberHistory (`memory/family-history/`)
+
+```yaml
+type: family-member-history
+title: "<Mother>"
+tags: [family-history]
+aliases: [<mum>, <mom>, <mother's side>]
+sources:
+  - resource: "session:<yyyy-mm-dd>"
+fhir:
+  resourceType: FamilyMemberHistory
+  id: fmh-<relationship>
+  status: completed
+  patient: {reference: "Patient/pt-self"}
+  relationship:
+    coding: [{system: "http://terminology.hl7.org/CodeSystem/v3-RoleCode", code: MTH, display: mother}]
+    text: "<mother>"
+  deceasedBoolean: true                 # only if said; or deceasedAge
+  condition:
+    - code: {text: "<Type 2 diabetes>"}
+      onsetAge: {value: 55, unit: "years", system: "http://unitsofmeasure.org", code: "a"}   # if said
+      contributedToDeath: true          # only if said
+```
+
+Body: what the person said, in their words, and the date they said it.
+
+## Device (`memory/patient/devices/`)
+
+```yaml
+type: device
+title: "<Hearing aid, left ear>"
+tags: [device, active]
+fhir:
+  resourceType: Device
+  id: dev-<slug>
+  status: active
+  type: {text: "<their words>"}
+  patient: {reference: "Patient/pt-self"}
+  note: [{text: "<In use since about 2021> (owner, <date>)"}]
+```
+
+## Lifestyle Observation (`memory/observations/standalone/<yyyy>/`)
+
+```yaml
+type: observation
+title: "<Alcohol use>"
+tags: [observation, lifestyle]
+fhir:
+  resourceType: Observation
+  id: obs-<yyyymmdd>-<alcohol-use>
+  status: final
+  category:
+    - coding: [{system: "http://terminology.hl7.org/CodeSystem/observation-category", code: social-history}]
+  code: {text: "<Alcohol use>"}
+  subject: {reference: "Patient/pt-self"}
+  effectiveDateTime: "<yyyy-mm-dd>"
+  performer: [{reference: "Patient/pt-self"}]
+  valueString: "<their words>"
+```
 
 ## Procedure, Observation, AllergyIntolerance, Immunization
 

@@ -25,7 +25,7 @@ generated:
 
 | Folder | What lives there | Open when | Index |
 |---|---|---|---|
-| `memory/patient/` | The vault owner (`pt-self.md`), `care-team/` (doctors, clinics, labs), `devices/` | A doctor, clinic or lab is named; anything about the person themselves | `memory/patient/index.md`, `memory/patient/care-team/index.md` |
+| `memory/patient/` | The vault owner (`pt-self.md`), `care-team/` (doctors, clinics, labs), `devices/` (hearing aids, implants, CPAP) | A doctor, clinic or lab is named; anything about the person themselves | `memory/patient/index.md`, `memory/patient/care-team/index.md` |
 | `memory/episodes/` | One hub per problem or investigation, with a timeline and, when finished, a conclusion | A problem is mentioned ("my ear", "the knee thing") | `memory/episodes/index.md` |
 | `memory/conditions/` | Problems and diagnoses, active and resolved | A diagnosis or problem by name | `memory/conditions/index.md` |
 | `memory/encounters/<yyyy>/` | Visits, calls, admissions | A visit, appointment or test that happened | `memory/encounters/index.md` (lists years) |
@@ -36,7 +36,8 @@ generated:
 | `memory/immunizations/` | Vaccines | A vaccine or shot | `memory/immunizations/index.md` |
 | `memory/documents/<yyyy>/` | One record per stored original, pointing at `data/documents/` | "Where's the original", or checking a value against the source | `memory/documents/index.md` (lists years) |
 | `memory/observations/` | One-off measurements (`standalone/<yyyy>/`); `ledgers/` and `series/` are reserved for later versions | A single measurement not in a report | `memory/observations/index.md` |
-| `memory/plans/`, `memory/family-history/` | Reserved for later versions | Rarely in v0.1 | their `index.md` |
+| `memory/family-history/` | One file per relative: their conditions, onset ages, living or not | Family history, "does anything run in the family" | `memory/family-history/index.md` |
+| `memory/plans/` | Reserved for later versions | Rarely | `memory/plans/index.md` |
 | `memory/library/` | Questions for doctors, research notes the person asked to keep | "What did I want to ask" | `memory/library/index.md` |
 | `memory/decisions/` | Health and treatment decisions with reasons | "Why did I decide" | `memory/decisions/index.md` |
 | `memory/reference/` | The rules the skills follow | A skill needs its rules | `memory/reference/index.md` |
@@ -58,6 +59,7 @@ generated:
 
 - `memory/_state.md`: hot-state card (derived, rebuildable)
 - `memory/index.md`: bundle index (folders)
+- `memory/_intake.md`: progress of the health history interview (`/ownmydata:intake`), if started
 - `data/load-log.md`: one line per original filed, with its SHA-256 and the records created
 
 ## Rules

@@ -8,7 +8,7 @@ generated:
   by: "ownmydata plugin"
   at: "2026-11-18"
 sources:
-  - resource: "ownmydata plugin v0.1.0"
+  - resource: "ownmydata plugin v0.2.0"
 ---
 
 # Required-field defaults

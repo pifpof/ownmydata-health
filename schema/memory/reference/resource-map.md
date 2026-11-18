@@ -8,7 +8,7 @@ generated:
   by: "ownmydata plugin"
   at: "2026-11-18"
 sources:
-  - resource: "ownmydata plugin v0.1.0"
+  - resource: "ownmydata plugin v0.2.0"
 ---
 
 # Resource map
@@ -25,6 +25,9 @@ sources:
 | A medication the person takes, took, or was told to take | **MedicationStatement** | Not for a drug merely mentioned. |
 | An allergy or intolerance | **AllergyIntolerance** | |
 | A vaccine given | **Immunization** | |
+| A relative's health ("my mother has diabetes") | **FamilyMemberHistory**, one per relative | Never for the owner's own conditions. |
+| A medical device or implant the person has (hearing aid, CPAP, pacemaker, IUD) | **Device** | Not for wearables that only produce readings until the wearables skill exists. |
+| Lifestyle: tobacco, alcohol, other substances, activity, sleep, work | **Observation** (standalone), category `social-history` or `activity` | |
 | A doctor, nurse, audiologist or other person providing care | **Practitioner** | Reuse an existing file when the name matches (see §4). |
 | A clinic, hospital, lab or pharmacy | **Organization** | Reuse when the name matches. |
 | Any original file (PDF, photo, scan) | **DocumentReference** | Never for a sentence (no file). |
@@ -50,6 +53,8 @@ Id grammar: `<prefix>-<yyyymmdd>-<slug>` for dated records, `<prefix>-<slug>` fo
 | AllergyIntolerance | `allergy-intolerance` | `alg` | none | `allergies/` |
 | Immunization | `immunization` | `imm` | occurrence date | `immunizations/` |
 | DocumentReference | `document-reference` | `doc` | document date | `documents/<yyyy>/` |
+| FamilyMemberHistory | `family-member-history` | `fmh` | none (`fmh-<relationship>`, e.g. `fmh-mother`, `fmh-brother-2`) | `family-history/` |
+| Device | `device` | `dev` | none (`dev-<slug>`, e.g. `dev-hearing-aid-left`) | `patient/devices/` |
 | Episode hub | `episode` | `ep` | opened date | `episodes/` |
 
 `<yyyy>` is the year in the id. Practitioner slug: surname plus a distinguishing word (`prac-example-ent`). Organization slug: its name (`org-example-ent-clinic`).
@@ -69,6 +74,8 @@ Id grammar: `<prefix>-<yyyymmdd>-<slug>` for dated records, `<prefix>-<slug>` fo
 | `AllergyIntolerance/<id>` | `memory/allergies/<id>.md` |
 | `Immunization/<id>` | `memory/immunizations/<id>.md` |
 | `DocumentReference/<id>` | `memory/documents/<yyyy>/<id>.md` |
+| `FamilyMemberHistory/<id>` | `memory/family-history/<id>.md` |
+| `Device/<id>` | `memory/patient/devices/<id>.md` |
 | episode id in `vault.episode` | `memory/episodes/<id>.md` |
 
 ## 4. Resolving people and places
@@ -102,5 +109,13 @@ Only write elements the source supports. Codes below are the only values allowed
 **Immunization:** uses `patient`, not `subject`. `status` (`completed | entered-in-error | not-done`); `vaccineCode.text`; `occurrenceDateTime` (or `occurrenceString` when only text is given); `lotNumber`; `site.text`; `performer[].actor`; `protocolApplied[].doseNumberString`.
 
 **DocumentReference:** `status: current`; `docStatus` (`preliminary | final | amended | entered-in-error`, only `final` if the document is clearly a signed or issued document); `type.text` ("Consultation note", "Laboratory report"); `subject`; `date` (when filed, full date-time with offset: it's an `instant`); `author[]`; `description`; `content[].attachment {contentType, url, title}` where `url` is the vault-root path of the original; `context.encounter[]`; `context.related[]` (the records made from it). Do not use `attachment.hash` (R4 requires base64 SHA-1 there); the SHA-256 goes in `vault.source.sha256`.
+
+**FamilyMemberHistory:** uses `patient`, not `subject`. `status` (`partial | completed | entered-in-error | health-unknown`); `relationship` (required) as `{coding: [{system: "http://terminology.hl7.org/CodeSystem/v3-RoleCode", code: <code>, display: <word>}], text: "<their word>"}` with codes MTH mother, FTH father, SIS sister, BRO brother, SIB sibling, HSIS half-sister, HBRO half-brother, DAU daughter, SON son, CHILD child, MGRMTH maternal grandmother, MGRFTH maternal grandfather, PGRMTH paternal grandmother, PGRFTH paternal grandfather, GRMTH grandmother, GRFTH grandfather, MAUNT maternal aunt, MUNCLE maternal uncle, PAUNT paternal aunt, PUNCLE paternal uncle, AUNT aunt, UNCLE uncle, COUSN cousin (anyone else: `text` only); `deceasedBoolean` or `deceasedAge {value, unit: "years", system: "http://unitsofmeasure.org", code: "a"}` or `deceasedString`, only if said; `condition[] {code.text, onsetAge {value, unit: "years", system: "http://unitsofmeasure.org", code: "a"} or onsetString, contributedToDeath, note[].text}`; `note[].text`. Never `sex` from the relationship word alone.
+
+**Device:** uses `patient`. `status` (`active | inactive | entered-in-error | unknown`); `type.text` (their words: "Hearing aid, left ear"); `deviceName[] {name, type: user-friendly-name}` if a brand is given; `note[].text` ("In use since about 2021 (owner)").
+
+**Lifestyle Observation:** `status: final`; `category` `social-history` (tobacco, alcohol, substances, occupation, sleep) or `activity` (exercise); `code.text` ("Tobacco use", "Alcohol use", "Substance use", "Physical activity", "Sleep", "Occupation"); `effectiveDateTime` = the day it was said; `valueString` = the person's words; `performer: [{reference: "Patient/pt-self"}]`. Substance use is always `vault.sensitivity: restricted`.
+
+**Self-reported records** (from `/ownmydata:intake`, or anything the person says about their own past): source `session:<date>`; the person as `asserter` (Condition, AllergyIntolerance) or `informationSource` (MedicationStatement) or `primarySource: false` + `reportOrigin.text` (Immunization); no `verificationStatus`; vague dates in the element's `…String` form (`onsetString: "as a child"`); no codes.
 
 **Episode hub:** no `fhir:` block. `vault.episode {status: active|onhold|finished|cancelled, period {start, end}, anchor: "Condition/<id>", export_as: EpisodeOfCare}`.

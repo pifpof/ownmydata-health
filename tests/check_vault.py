@@ -62,6 +62,8 @@ STATUS_SETS = {
     "MedicationStatement": {"active", "completed", "entered-in-error", "intended", "stopped", "on-hold", "unknown", "not-taken"},
     "Immunization": {"completed", "entered-in-error", "not-done"},
     "DocumentReference": {"current", "superseded", "entered-in-error"},
+    "FamilyMemberHistory": {"partial", "completed", "entered-in-error", "health-unknown"},
+    "Device": {"active", "inactive", "entered-in-error", "unknown"},
 }
 CLINICAL = {"active", "recurrence", "relapse", "inactive", "remission", "resolved"}
 VERIF = {"unconfirmed", "provisional", "differential", "confirmed", "refuted", "entered-in-error"}

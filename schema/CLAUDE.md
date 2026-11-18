@@ -47,6 +47,7 @@ Commands are namespaced by the plugin: type `/ownmydata:capture`, or just say wh
 
 - `/ownmydata:setup-health-vault`: first-time setup (already run if you're reading this in a vault)
 - `/ownmydata:capture`: add a document or something that happened
+- `/ownmydata:intake`: health history interview (allergies, conditions, family history...), one question at a time; only when the person asks
 - `/ownmydata:start`: where things stand
 - `/ownmydata:save`: end-of-session write-back; closes a problem when the person says it's done
 - `/ownmydata:health-check`: check and tidy the vault
