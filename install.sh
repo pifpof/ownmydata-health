@@ -18,9 +18,14 @@
 #      setup-health-vault/references/vault-template/, because a single
 #      installed skill can't see the plugin's schema/ folder.
 #
+#   3. dist/ownmydata-<version>-arm64.dmg and -x64.dmg (with --with-app, macOS only)
+#      The read-only vault viewer app from app/. Unsigned: first open is
+#      right-click -> Open.
+#
 # Usage:
-#   ./install.sh           Build everything
-#   ./install.sh --clean   Wipe dist/ first, then build
+#   ./install.sh               Build the plugin packages
+#   ./install.sh --clean       Wipe dist/ first, then build
+#   ./install.sh --with-app    Also build the viewer app DMGs (needs npm install in app/)
 
 set -euo pipefail
 export COPYFILE_DISABLE=1   # no macOS resource-fork cruft in zips
@@ -36,12 +41,12 @@ ok()  { echo -e "  ${GREEN}✓${NC} $*"; }
 err() { echo -e "  ${RED}✗${NC} $*"; }
 
 # Versions must agree (repo CLAUDE.md rule)
-for f in .claude-plugin/marketplace.json package.json; do
+for f in .claude-plugin/marketplace.json package.json app/package.json; do
   v="$(sed -n 's/.*"version": *"\([^"]*\)".*/\1/p' "$REPO_ROOT/$f" | head -1)"
   if [[ "$v" != "$PACK_VERSION" ]]; then err "$f version $v != plugin.json $PACK_VERSION"; exit 1; fi
 done
 
-[[ "${1:-}" == "--clean" ]] && { say "Cleaning dist/"; rm -rf "$DIST_DIR"; }
+[[ " $* " == *" --clean "* ]] && { say "Cleaning dist/"; rm -rf "$DIST_DIR"; }
 mkdir -p "$DIST_DIR"
 rm -rf "$TMP_DIR"; mkdir -p "$TMP_DIR"
 
@@ -73,4 +78,13 @@ for skill_dir in "$REPO_ROOT"/skills/*/; do
 done
 
 rm -rf "$TMP_DIR"
+
+# 3. Viewer app (optional)
+if [[ " $* " == *" --with-app "* ]]; then
+  say "Building the viewer app"
+  (cd "$REPO_ROOT/app" && npm run build:mac)
+  cp "$REPO_ROOT"/app/dist/ownmydata-"$PACK_VERSION"-*.dmg "$DIST_DIR/"
+  ok "ownmydata-$PACK_VERSION DMGs"
+fi
+
 say "Done: dist/ownmydata.zip plus $(find "$DIST_DIR" -maxdepth 1 -name '*.skill' | wc -l | tr -d ' ') .skill files"

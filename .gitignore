@@ -4,6 +4,8 @@
 
 # Build output
 dist/
+app/node_modules/
+app/out/
 .build-tmp/
 
 # macOS / editors
