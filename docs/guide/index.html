@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ownmydata help</title>
+<meta name="description" content="How to use ownmydata: the Claude plugin that keeps your health records in plain files you own, and the viewer app that lets you browse them.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#0d1b2a">
+<link rel="preload" href="fonts/schibsted-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="guide.css">
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a class="mark" href="index.html">own<span>my</span>data<small>help</small></a>
+    <nav aria-label="Guides">
+      <ul>
+        <li class="hide-xs"><a href="index.html" aria-current="page">Start here</a></li>
+        <li><a href="plugin.html">Plugin guide</a></li>
+        <li><a href="viewer.html">Viewer guide</a></li>
+        <li class="hide-sm"><a href="https://github.com/pifpof/ownmydata-health">GitHub</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap hero">
+    <p class="eyebrow">Help · v0.2</p>
+    <h1>Your health data, <em>kept by you</em>.</h1>
+    <p class="lede">ownmydata keeps your health records in a folder on your own computer, as plain files any system can read. Claude does the filing; you hand things over. These guides show you how to set it up, use it day to day, and browse what you've gathered.</p>
+    <div class="cta">
+      <a class="btn primary" href="plugin.html">Read the plugin guide</a>
+      <a class="btn" href="viewer.html">Read the viewer guide</a>
+    </div>
+  </div>
+
+  <div class="wrap guide">
+    <nav class="toc" aria-label="On this page">
+      <p>On this page</p>
+      <ol>
+        <li><a href="#why">Why this project exists</a></li>
+        <li><a href="#community">A community, not a product</a></li>
+        <li><a href="#pieces">How the pieces fit</a></li>
+        <li><a href="#start">Where to start</a></li>
+        <li><a href="#promises">What we promise</a></li>
+        <li><a href="#help">Getting help</a></li>
+      </ol>
+    </nav>
+
+    <div class="doc">
+      <section id="why" aria-labelledby="why-h">
+        <p class="label">The idea</p>
+        <h2 id="why-h">Why this project exists</h2>
+        <p>ownmydata was created on one belief: <strong>we have the right to own our health data</strong>, and that right matters more than ever in a future where AI is becoming part of how our healthcare works.</p>
+        <p>Today your health story is scattered. A lab report in one portal, a specialist's letter in an email, a prescription in a drawer, a family history that lives only in your memory. Each clinic, insurer and system holds a piece, and none of them hold the whole picture. When AI starts helping with care, it will help most where the picture is complete and accurate. The question is who holds that picture.</p>
+        <ol class="beats">
+          <li>AI will play a bigger role in our healthcare. Of everything ahead, that is the one thing we can be sure of.</li>
+          <li>AI works best with more data, and with data that is relevant and accurate. The more complete the picture of your health, the better it can help.</li>
+          <li>That picture shouldn't be owned by governments, insurance companies or health providers.</li>
+          <li>It's yours. You have the right to own it, and to use it however you choose.</li>
+        </ol>
+        <p style="margin-top:24px">So ownmydata gives you a way to start: a vault of plain files on your own computer, written in the standard health systems use (HL7 FHIR R4) and organised so any AI can find its way around it (the Open Knowledge Format). Nothing about it is locked in. If this project vanished tomorrow, your records would still be yours, and still readable.</p>
+      </section>
+
+      <section id="community" aria-labelledby="community-h">
+        <p class="label">The people</p>
+        <h2 id="community-h">A community, not a product</h2>
+        <p>ownmydata is open source (MIT licensed) and built by people who want the same thing: to <strong>gather</strong> our own health data, <strong>keep it safe</strong>, and <strong>use it to get better care</strong>. Better questions at the next appointment. A complete history when you change doctors. The right numbers in front of the right person. A picture of your health that an AI you choose can actually help with.</p>
+        <p>We help each other do that. Some of us write code. Most of us don't. Everyone who tries it and says what was confusing makes it better for the next person.</p>
+        <div class="steps">
+          <div class="step"><span class="n">01</span><h3>Gather</h3><p>Hand Claude your documents and tell it what happened. It files everything in your own folder, so the scattered pieces become one record.</p></div>
+          <div class="step"><span class="n">02</span><h3>Safekeep</h3><p>Your records stay on your computer, in plain text, with every original kept untouched and every value traceable to its source.</p></div>
+          <div class="step"><span class="n">03</span><h3>Use it</h3><p>Ask questions, prepare for visits, catch what's still open, and bring a complete, accurate picture to the people and tools you trust.</p></div>
+        </div>
+        <p>Ways to take part, with or without code:</p>
+        <ul>
+          <li><strong>Try it and tell us what broke.</strong> Open an <a href="https://github.com/pifpof/ownmydata-health/issues">issue on GitHub</a> with what worked and what didn't.</li>
+          <li><strong>Share what helped.</strong> A tip about setting it up, a way you prepare for appointments, a question you wish you'd asked.</li>
+          <li><strong>Make test documents.</strong> Fictional lab reports and letters in formats we haven't seen yet help the plugin read more kinds of paperwork.</li>
+          <li><strong>Translate, review, build.</strong> The skills, these guides, the format, importers for other record types: all open.</li>
+        </ul>
+        <div class="warn"><strong>One rule above all: no real health data in the community spaces.</strong> Issues, examples, screenshots and test files use fictional records only. Your real records belong in your vault and nowhere else.</div>
+      </section>
+
+      <section id="pieces" aria-labelledby="pieces-h">
+        <p class="label">The tools</p>
+        <h2 id="pieces-h">How the pieces fit</h2>
+        <p>There are three parts, and only one of them holds your data.</p>
+        <div class="steps">
+          <div class="step"><span class="n">Your folder</span><h3>The vault</h3><p>A folder on your computer: your records as markdown files, your original documents, and a map that tells any AI where to look. It belongs to you.</p></div>
+          <a class="step" href="plugin.html"><span class="n">Writes</span><h3>The plugin</h3><p>Skills for Claude that file documents, take your health history, brief you on what's open and keep the vault tidy. You talk; Claude files.</p></a>
+          <a class="step" href="viewer.html"><span class="n">Reads</span><h3>The viewer</h3><p>A Mac app for browsing your vault: sections, records, links between them. It only reads, and never goes online.</p></a>
+        </div>
+      </section>
+
+      <section id="start" aria-labelledby="start-h">
+        <p class="label">Your path</p>
+        <h2 id="start-h">Where to start</h2>
+        <div class="scroll">
+        <table class="table">
+          <thead><tr><th>If you…</th><th>Go to</th></tr></thead>
+          <tbody>
+            <tr><td>are new</td><td><a href="plugin.html#install">Install the plugin</a>, <a href="plugin.html#folder">choose a folder</a>, <a href="plugin.html#project">set up a Claude Project</a>, then <a href="plugin.html#setup">create your vault</a>. About ten minutes.</td></tr>
+            <tr><td>have a vault already</td><td><a href="plugin.html#habits">The three habits</a>, then <a href="plugin.html#intake">your health history interview</a> when you have 15 minutes.</td></tr>
+            <tr><td>want to see your records</td><td><a href="viewer.html#install">Install the viewer</a> and point it at your vault folder.</td></tr>
+            <tr><td>just want to look first</td><td>Browse the <a href="https://github.com/pifpof/ownmydata-health/tree/main/examples/sample-vault">fictional example vault</a> on GitHub, or the <a href="viewer.html#tour">viewer tour</a> in this guide.</td></tr>
+          </tbody>
+        </table>
+        </div>
+      </section>
+
+      <section id="promises" aria-labelledby="promises-h">
+        <p class="label">What to expect</p>
+        <h2 id="promises-h">What we promise</h2>
+        <div class="panel">
+          <h3>Where your data lives</h3>
+          <ul>
+            <li><strong>Your records stay in your folder.</strong> The project's code and examples never contain anyone's real data.</li>
+            <li><strong>The AI provider sees what you give it.</strong> When you hand Claude a document, its contents are processed so it can be read, as with anything you share with Claude.</li>
+            <li><strong>The plugin writes only to your vault,</strong> never to Claude's account memory, never into a web search.</li>
+            <li><strong>The viewer never goes online</strong> and never changes a file.</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h3>How the records stay honest</h3>
+          <ul>
+            <li><strong>Copied, never computed.</strong> Values, units, ranges and flags are copied exactly as the document prints them.</li>
+            <li><strong>No invented codes.</strong> A medical code is written only when the document prints it, or it matches a short, checked list.</li>
+            <li><strong>Absent stays absent.</strong> If the document doesn't say it, the record doesn't either.</li>
+            <li><strong>Every answer names its source.</strong></li>
+            <li><strong>No forms.</strong> You are never asked to fill in a field so a record is "complete".</li>
+          </ul>
+        </div>
+        <div class="warn"><strong>Not medical advice.</strong> ownmydata keeps your records straight and tells you what they say. It doesn't diagnose, prescribe, or tell you to start, stop or change treatment. For sudden or severe symptoms it tells you to get urgent care, and so do we: if something feels wrong right now, contact a doctor or emergency services first.</div>
+      </section>
+
+      <section id="help" aria-labelledby="help-h">
+        <p class="label">Stuck?</p>
+        <h2 id="help-h">Getting help</h2>
+        <ul>
+          <li>Each guide ends with a troubleshooting section: <a href="plugin.html#trouble">plugin</a>, <a href="viewer.html#trouble">viewer</a>.</li>
+          <li>Search or open an <a href="https://github.com/pifpof/ownmydata-health/issues">issue on GitHub</a>. Describe what happened using fictional details, never your own records.</li>
+          <li>Security or privacy problem? Follow <a href="https://github.com/pifpof/ownmydata-health/blob/main/SECURITY.md">SECURITY.md</a> instead of opening a public issue.</li>
+          <li>Anything else: <a href="mailto:info@ownmydata.health">info@ownmydata.health</a>.</li>
+        </ul>
+      </section>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <nav aria-label="Footer">
+      <a href="https://ownmydata.health/">ownmydata.health</a>
+      <a href="https://github.com/pifpof/ownmydata-health">GitHub</a>
+      <a href="https://github.com/pifpof/ownmydata-health/releases">Releases</a>
+      <a href="https://github.com/pifpof/ownmydata-health/blob/main/LICENSE">MIT licence</a>
+      <a href="mailto:info@ownmydata.health">info@ownmydata.health</a>
+    </nav>
+    <p>Open source. No trackers, no cookies, no third-party requests. Examples use fictional records only.</p>
+  </div>
+</footer>
+</body>
+</html>

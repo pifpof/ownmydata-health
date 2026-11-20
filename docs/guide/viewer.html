@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Viewer guide · ownmydata help</title>
+<meta name="description" content="The complete guide to the ownmydata viewer: a private, read-only Mac app for browsing your health vault.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#0d1b2a">
+<link rel="preload" href="fonts/schibsted-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="guide.css">
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a class="mark" href="index.html">own<span>my</span>data<small>help</small></a>
+    <nav aria-label="Guides">
+      <ul>
+        <li class="hide-xs"><a href="index.html">Start here</a></li>
+        <li><a href="plugin.html">Plugin guide</a></li>
+        <li><a href="viewer.html" aria-current="page">Viewer guide</a></li>
+        <li class="hide-sm"><a href="https://github.com/pifpof/ownmydata-health">GitHub</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap hero">
+    <p class="eyebrow">Viewer guide · v0.2 · macOS</p>
+    <h1>See your whole record, <em>offline</em>.</h1>
+    <p class="lede">The ownmydata viewer is a Mac app for browsing the vault Claude keeps for you: your problems, results, medicines and visits, with the links between them working like a website. It only reads the folder. It never changes a file and never goes online.</p>
+  </div>
+
+  <div class="wrap guide">
+    <nav class="toc" aria-label="Contents">
+      <p>Contents</p>
+      <ol>
+        <li><a href="#what">What it is</a></li>
+        <li><a href="#install">Install</a></li>
+        <li><a href="#open">Open your vault</a></li>
+        <li><a href="#tour">The Overview</a></li>
+        <li><a href="#sections">Sections</a></li>
+        <li><a href="#lists">Lists and filters</a></li>
+        <li><a href="#record">Record pages</a></li>
+        <li><a href="#private">Private records</a></li>
+        <li><a href="#moving">Getting around</a></li>
+        <li><a href="#live">Live updates</a></li>
+        <li><a href="#words">What the words mean</a></li>
+        <li><a href="#privacy">Privacy</a></li>
+        <li><a href="#trouble">Troubleshooting</a></li>
+      </ol>
+    </nav>
+
+    <div class="doc">
+      <section id="what" aria-labelledby="what-h">
+        <h2 id="what-h">What it is</h2>
+        <p>The plugin writes your vault; the viewer lets you look at it. Use it to see everything at a glance, follow a problem from first visit to conclusion, check a value against its original document, or show a clinician your history on your own screen.</p>
+        <div class="steps">
+          <div class="step"><span class="n">Reads only</span><h3>Never edits</h3><p>No code in the app can write to your vault. Corrections go through Claude, which keeps the change logs straight.</p></div>
+          <div class="step"><span class="n">Offline</span><h3>Never goes online</h3><p>No accounts, analytics, update checks or remote fonts. Every network request is blocked, twice.</p></div>
+          <div class="step"><span class="n">Private</span><h3>Hides what's sensitive</h3><p>Records marked private stay hidden until you click Show, and hide again every time the app opens.</p></div>
+        </div>
+      </section>
+
+      <section id="install" aria-labelledby="install-h">
+        <h2 id="install-h">Install</h2>
+        <ol>
+          <li>From the <a href="https://github.com/pifpof/ownmydata-health/releases">latest release</a>, download the DMG for your Mac:
+            <ul>
+              <li><code>ownmydata-&lt;version&gt;-arm64.dmg</code> for Apple Silicon (M1 and later)</li>
+              <li><code>ownmydata-&lt;version&gt;-x64.dmg</code> for Intel Macs</li>
+            </ul>
+            <span class="muted">Not sure? Apple menu → About This Mac: "Chip: Apple M…" means Apple Silicon.</span>
+          </li>
+          <li>Open the DMG and drag <strong>ownmydata</strong> into Applications.</li>
+          <li>The app isn't signed by Apple yet, so the first time: <strong>right-click it in Applications, choose Open, then Open again</strong>. After that it opens normally.</li>
+        </ol>
+        <div class="note"><strong>Updating:</strong> install the new DMG over the old app. Your choice of vault is remembered. The Dock icon may take a moment to refresh.</div>
+        <p class="muted">Windows and Linux versions aren't packaged yet.</p>
+      </section>
+
+      <section id="open" aria-labelledby="open-h">
+        <h2 id="open-h">Open your vault</h2>
+        <figure>
+          <img src="img/01-welcome.png" alt="The viewer's welcome screen with a button labelled Choose your vault folder." width="1280" height="820">
+          <figcaption>The first time you open the app.</figcaption>
+        </figure>
+        <p>Click <strong>Choose your vault folder</strong> and pick the folder you chose when you set up ownmydata: the one with a file called <code>memory.md</code> in it. The app checks it really is a health vault, remembers it, and opens the Overview. Next time, it opens straight there.</p>
+        <p>To switch to a different vault: <strong>File → Open Another Vault…</strong> (<kbd>⌘</kbd> <kbd>O</kbd>), or the link at the bottom of the sidebar.</p>
+      </section>
+
+      <section id="tour" aria-labelledby="tour-h">
+        <h2 id="tour-h">The Overview</h2>
+        <figure>
+          <img src="img/03-overview.png" alt="The Overview: the owner's name, a Health records panel with a search box and cards for each section showing counts, and the sidebar." width="1280" height="820">
+          <figcaption>The Overview, with a fictional vault. Each card shows how many records a section holds.</figcaption>
+        </figure>
+        <ul>
+          <li><strong>Health records:</strong> one card per section, with its count. Click a card to open the section.</li>
+          <li><strong>Search all your health records:</strong> type a word and the cards become a list of matching records from every section. It matches names, the nicknames you use ("ear thing") and summaries.</li>
+          <li><strong>Being followed now:</strong> the problems still open, with their status.</li>
+          <li><strong>Right now:</strong> the summary Claude keeps up to date at the end of each session: active problems, what's coming up, recent flagged results and medicines. Every line links to its record.</li>
+        </ul>
+        <figure>
+          <img src="img/03b-overview-search.png" alt="Searching the Overview for 'ear thing' shows two matches: the Left ear investigation episode and a hearing-loss condition." width="1280" height="820">
+          <figcaption>Searching across every section.</figcaption>
+        </figure>
+      </section>
+
+      <section id="sections" aria-labelledby="sections-h">
+        <h2 id="sections-h">Sections</h2>
+        <p>The sidebar groups your records the way you'd think about them. Sections with nothing in them yet are shown dimmed, so you can see what the vault can hold.</p>
+        <div class="scroll">
+        <table class="table">
+          <thead><tr><th>Section</th><th>What's in it</th></tr></thead>
+          <tbody>
+            <tr><td>Episodes</td><td>One page per problem being followed ("Left ear investigation"), with a timeline and, once it's over, a conclusion.</td></tr>
+            <tr><td>Conditions</td><td>Problems and diagnoses, current and past.</td></tr>
+            <tr><td>Medications</td><td>What you take, took or were prescribed.</td></tr>
+            <tr><td>Allergies</td><td>Allergies and intolerances, with reactions.</td></tr>
+            <tr><td>Results</td><td>Lab reports, hearing tests, imaging reports, single measurements, and lifestyle answers from your history.</td></tr>
+            <tr><td>Visits</td><td>Appointments, calls and hospital stays.</td></tr>
+            <tr><td>Procedures</td><td>Operations, biopsies, therapies.</td></tr>
+            <tr><td>Vaccines</td><td>Immunisations.</td></tr>
+            <tr><td>Family history</td><td>Conditions in your family, by relative.</td></tr>
+            <tr><td>You</td><td>Your own details.</td></tr>
+            <tr><td>Care team</td><td>Your doctors, clinics and labs.</td></tr>
+            <tr><td>Devices</td><td>Hearing aids, implants and similar.</td></tr>
+            <tr><td>Documents</td><td>One record per original document, with a button to open the original.</td></tr>
+            <tr><td>Notes and questions</td><td>Questions for your doctors and notes you asked Claude to keep.</td></tr>
+            <tr><td>Decisions, Plans</td><td>Health decisions with their reasons, and care plans.</td></tr>
+            <tr><td>All files</td><td>Every file in the vault as folders, including indexes, change logs and the rules Claude follows.</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <p class="muted">If a record doesn't fit any section, an <strong>Other</strong> section appears with the reason.</p>
+      </section>
+
+      <section id="lists" aria-labelledby="lists-h">
+        <h2 id="lists-h">Lists and filters</h2>
+        <figure>
+          <img src="img/09-conditions-list.png" alt="The Conditions list: name, date, status chips and summary for each condition, including a locked Private condition and one file marked with a warning." width="1280" height="820">
+          <figcaption>A section list, newest first. The lock marks a private record; the warning marks a file that couldn't be read.</figcaption>
+        </figure>
+        <ul>
+          <li>Records are listed <strong>newest first</strong>. Dates given in words ("since I was a teenager") come after dated ones.</li>
+          <li>The <strong>filter box</strong> narrows the list as you type, matching names, nicknames and summaries.</li>
+          <li><strong>Status chips</strong> show where things stand (see <a href="#words">what the words mean</a>).</li>
+          <li>Click a row, or move to it with <kbd>Tab</kbd> and press <kbd>Return</kbd>, to open the record.</li>
+        </ul>
+      </section>
+
+      <section id="record" aria-labelledby="record-h">
+        <h2 id="record-h">Record pages</h2>
+        <figure>
+          <img src="img/07-condition.png" alt="A condition record: title, date and status chips, the record's text with links, and on the right Key facts, Sources with Open original and Show in Finder, and Linked from." width="1280" height="820">
+          <figcaption>A condition, with its key facts, sources and links.</figcaption>
+        </figure>
+        <p>Every record page has the same parts:</p>
+        <ul>
+          <li><strong>Header:</strong> what kind of record it is, its title, its main date, its status and a one-line summary.</li>
+          <li><strong>The text:</strong> Claude's short, readable write-up. Underlined links open the linked record inside the app. Links with a dotted underline point to something that isn't in the vault.</li>
+          <li><strong>Key facts:</strong> the structured data in plain labels: body site, since, recorded by, the visit it came from. Doctors, clinics and visits are links.</li>
+          <li><strong>Sources:</strong> where it came from. A document has <strong>Open original</strong> (opens it in Preview or your usual app) and <strong>Show in Finder</strong>. Something you told Claude shows as "From what you told me" with the date.</li>
+          <li><strong>Linked from:</strong> every record that points here. On an episode, that's everything that belongs to the problem.</li>
+          <li><strong>All data:</strong> click to see exactly what's stored in the file, field by field.</li>
+        </ul>
+        <figure>
+          <img src="img/08-report.png" alt="A lab report record with a results table: analyte, code, value, unit, range, flag and note columns." width="1280" height="820">
+          <figcaption>Lab results appear as a table, exactly as the lab printed them, with any unclear value noted.</figcaption>
+        </figure>
+        <figure>
+          <img src="img/04-episode.png" alt="An episode page: summary, care team, open items, and the record list under Linked from." width="1280" height="820">
+          <figcaption>An episode brings a whole problem together: summary, open items, timeline and conclusion.</figcaption>
+        </figure>
+      </section>
+
+      <section id="private" aria-labelledby="private-h">
+        <h2 id="private-h">Private records</h2>
+        <figure>
+          <img src="img/10-private-hidden.png" alt="A private record page showing only 'Private record' and a Show button." width="1280" height="820">
+          <figcaption>A private record before you click Show.</figcaption>
+        </figure>
+        <p>Records about mental health, reproductive and sexual health, substance use and genetic results are marked private by the plugin. The viewer treats them carefully:</p>
+        <ul>
+          <li>In lists and search they appear only as <strong>"Private condition"</strong> (or medication, and so on) with a lock. Their real name, nicknames and summary are never shown.</li>
+          <li><strong>Searching for words inside them finds nothing</strong>, so a search can't reveal what a private record is about.</li>
+          <li>Click <strong>Show</strong> to see the record. It stays visible until you quit the app, and is <strong>hidden again every time the app opens</strong>.</li>
+        </ul>
+        <p class="muted">Until you click Show, the private details don't even reach the window: the part of the app that reads files holds them back.</p>
+      </section>
+
+      <section id="moving" aria-labelledby="moving-h">
+        <h2 id="moving-h">Getting around</h2>
+        <p>The app keeps a history like a browser. Back returns you to the exact place you were, including how far you'd scrolled and what you'd typed in a filter.</p>
+        <div class="scroll">
+        <table class="table">
+          <thead><tr><th>Do this</th><th>With</th></tr></thead>
+          <tbody>
+            <tr><td>Go back</td><td><kbd>⌘</kbd> <kbd>[</kbd>, the ‹ button, the mouse back button, or a two-finger swipe</td></tr>
+            <tr><td>Go forward</td><td><kbd>⌘</kbd> <kbd>]</kbd>, the › button, or the mouse forward button</td></tr>
+            <tr><td>Overview</td><td><kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>H</kbd>, or Overview in the sidebar</td></tr>
+            <tr><td>Open another vault</td><td><kbd>⌘</kbd> <kbd>O</kbd></td></tr>
+            <tr><td>Bigger or smaller text</td><td><kbd>⌘</kbd> <kbd>+</kbd> and <kbd>⌘</kbd> <kbd>−</kbd>; <kbd>⌘</kbd> <kbd>0</kbd> to reset</td></tr>
+            <tr><td>Up a level</td><td>Click the section name in the bar at the top</td></tr>
+          </tbody>
+        </table>
+        </div>
+      </section>
+
+      <section id="live" aria-labelledby="live-h">
+        <h2 id="live-h">Live updates</h2>
+        <p>Keep the viewer open while you work with Claude. When Claude files a document or makes a correction, the lists, counts and the page you're on update within a second or two, without losing your place.</p>
+      </section>
+
+      <section id="words" aria-labelledby="words-h">
+        <h2 id="words-h">What the words mean</h2>
+        <div class="scroll">
+        <table class="table">
+          <thead><tr><th>You see</th><th>It means</th></tr></thead>
+          <tbody>
+            <tr><td>active</td><td>A problem or allergy that's current.</td></tr>
+            <tr><td>resolved, inactive</td><td>Over, or no longer causing trouble.</td></tr>
+            <tr><td>provisional</td><td>The clinician wrote it as likely, not certain ("likely conductive").</td></tr>
+            <tr><td>differential</td><td>One of several possibilities the clinician was considering.</td></tr>
+            <tr><td>taking, planned, stopped, finished</td><td>For medicines: what you take now, what was prescribed but not started, and what's ended.</td></tr>
+            <tr><td>finished, on hold</td><td>For episodes: closed with a conclusion, or paused.</td></tr>
+            <tr><td>preliminary</td><td>The report says its results aren't final yet.</td></tr>
+            <tr><td>From what you told me</td><td>The record comes from something you said, not a document. It's your account, not a diagnosis.</td></tr>
+            <tr><td>Not yet checked against the original</td><td>Nobody has confirmed the values against the document yet. Tell Claude "numbers look right" once you have.</td></tr>
+            <tr><td>Couldn't read this file</td><td>The file is damaged or was edited by hand. The reason is shown; saying "check my vault" to Claude usually fixes it.</td></tr>
+            <tr><td>A dotted underline</td><td>A link to something that isn't in the vault.</td></tr>
+          </tbody>
+        </table>
+        </div>
+      </section>
+
+      <section id="privacy" aria-labelledby="privacy-h">
+        <h2 id="privacy-h">Privacy</h2>
+        <div class="panel">
+          <ul>
+            <li><strong>No network.</strong> The app makes no connections. A content security policy and a block in the app's own networking both stop any request, so even a bug couldn't send your data anywhere.</li>
+            <li><strong>No writing.</strong> The app never changes, moves or deletes a file in your vault. Its only saved setting, which folder you chose and the window size, lives in the app's own settings folder.</li>
+            <li><strong>Stays in your vault.</strong> The app refuses to open anything outside the vault folder, including through shortcuts that point elsewhere.</li>
+            <li><strong>External links</strong> in a record open in your web browser, and only when you click them.</li>
+          </ul>
+        </div>
+        <p class="muted">Anyone who can see your screen can see what you open. Close the app, or switch away, when you're not using it.</p>
+      </section>
+
+      <section id="trouble" aria-labelledby="trouble-h">
+        <h2 id="trouble-h">Troubleshooting</h2>
+        <h3>"ownmydata can't be opened because Apple cannot check it"</h3>
+        <p>The app isn't signed yet. Right-click it in Applications, choose <strong>Open</strong>, then <strong>Open</strong> again. You only need to do this once.</p>
+        <h3>"That folder doesn't have a health vault in it"</h3>
+        <p>Pick the folder that contains <code>memory.md</code>, not a folder inside it (like <code>memory</code>) or the one above it. If you haven't made a vault yet, see <a href="plugin.html#setup">Create your vault</a>.</p>
+        <h3>"The vault folder you used last time can't be found"</h3>
+        <p>The folder was moved, renamed or is on a drive that isn't connected. Choose it again in its new place.</p>
+        <h3>"Made by a newer version of ownmydata"</h3>
+        <p>Your vault uses a format this version of the viewer doesn't know yet. Install the latest viewer from the releases page.</p>
+        <h3>A record I just added isn't showing</h3>
+        <p>Give it a second or two; the app picks up changes on its own. If it still isn't there, check that Claude saved it into this vault (the folder name is shown at the bottom of the sidebar).</p>
+        <h3>A file shows "Couldn't read this file"</h3>
+        <p>Usually a hand edit broke its structure. Ask Claude to "check my vault"; the health check reports what's wrong and fixes what it safely can.</p>
+        <h3>Something else</h3>
+        <p>Open an <a href="https://github.com/pifpof/ownmydata-health/issues">issue on GitHub</a> with what you did and what you saw, using fictional details or a screenshot of the sample vault, never your own records.</p>
+      </section>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <nav aria-label="Footer">
+      <a href="index.html">Help home</a>
+      <a href="plugin.html">Plugin guide</a>
+      <a href="https://ownmydata.health/">ownmydata.health</a>
+      <a href="https://github.com/pifpof/ownmydata-health">GitHub</a>
+      <a href="mailto:info@ownmydata.health">info@ownmydata.health</a>
+    </nav>
+    <p>Open source, MIT licensed. Screenshots show a fictional vault. Not medical advice.</p>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plugin guide · ownmydata help</title>
+<meta name="description" content="The complete guide to the ownmydata Claude plugin: install, set up your vault, hand over documents, take your health history, and keep the vault healthy.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#0d1b2a">
+<link rel="preload" href="fonts/schibsted-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="guide.css">
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a class="mark" href="index.html">own<span>my</span>data<small>help</small></a>
+    <nav aria-label="Guides">
+      <ul>
+        <li class="hide-xs"><a href="index.html">Start here</a></li>
+        <li><a href="plugin.html" aria-current="page">Plugin guide</a></li>
+        <li><a href="viewer.html">Viewer guide</a></li>
+        <li class="hide-sm"><a href="https://github.com/pifpof/ownmydata-health">GitHub</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap hero">
+    <p class="eyebrow">Plugin guide · v0.2</p>
+    <h1>Hand it over. <em>Claude files it.</em></h1>
+    <p class="lede">The ownmydata plugin is a set of skills for Claude. You drop in a lab report, a visit note or a photo of a letter, or just say what happened, and Claude writes it into your vault: linked to the right problem, with the original kept untouched. You never fill in a form.</p>
+  </div>
+
+  <div class="wrap guide">
+    <nav class="toc" aria-label="Contents">
+      <p>Contents</p>
+      <ol>
+        <li><a href="#need">What you need</a></li>
+        <li><a href="#install">Install the plugin</a></li>
+        <li><a href="#folder">Choose a folder</a></li>
+        <li><a href="#project">Set up a Claude Project</a></li>
+        <li><a href="#setup">Create your vault</a></li>
+        <li><a href="#habits">The three habits</a></li>
+        <li><a href="#capture">Handing things over</a></li>
+        <li><a href="#check">Checking and correcting</a></li>
+        <li><a href="#intake">Your health history</a></li>
+        <li><a href="#episodes">Problems over time</a></li>
+        <li><a href="#ask">Asking questions</a></li>
+        <li><a href="#vault">Inside your vault</a></li>
+        <li><a href="#upkeep">Keeping it healthy</a></li>
+        <li><a href="#privacy">Privacy and safety</a></li>
+        <li><a href="#reference">Command reference</a></li>
+        <li><a href="#trouble">Troubleshooting</a></li>
+      </ol>
+    </nav>
+
+    <div class="doc">
+      <section id="need" aria-labelledby="need-h">
+        <h2 id="need-h">What you need</h2>
+        <ul>
+          <li><strong>Claude</strong>, with access to a folder on your computer: <strong>Claude Code</strong>, or the <strong>Claude desktop app</strong> with a Project linked to a folder.</li>
+          <li><strong>A folder for your vault</strong> on your own computer (<a href="#folder">how to choose one</a>).</li>
+          <li><strong>Your documents</strong>, whenever you have them: PDFs, photos of paper, pasted text. You can also start with nothing and just talk.</li>
+        </ul>
+        <p class="muted">Everything the plugin writes is plain text. You don't need to know anything about FHIR, markdown or file formats to use it; they're there so your records stay portable.</p>
+      </section>
+
+      <section id="install" aria-labelledby="install-h">
+        <h2 id="install-h">Install the plugin</h2>
+        <h3>From GitHub (recommended)</h3>
+        <p>In Claude Code, run:</p>
+<pre class="code">/plugin marketplace add pifpof/ownmydata-health
+/plugin install ownmydata@ownmydata</pre>
+        <h3>From the zip file</h3>
+        <ol>
+          <li>Download <code>ownmydata.zip</code> from the <a href="https://github.com/pifpof/ownmydata-health/releases">latest release</a> and unzip it. You get a folder called <code>ownmydata</code>.</li>
+          <li>In Claude Code, from the folder that contains <code>ownmydata</code>, run:
+<pre class="code">/plugin marketplace add ./ownmydata
+/plugin install ownmydata@ownmydata</pre></li>
+        </ol>
+        <p class="muted">To try it for one session without installing: <code>claude --plugin-dir ownmydata.zip</code>.</p>
+        <h3>Single skills (Claude desktop)</h3>
+        <p>Each release also has one <code>.skill</code> file per skill. In the Claude desktop app, go to <strong>Customize → Skills</strong> and upload them one at a time. Start with <code>setup-health-vault.skill</code>: it carries the empty vault template the others rely on.</p>
+        <div class="note"><strong>Commands are namespaced.</strong> Once installed, every command starts with <code>/ownmydata:</code>, for example <code>/ownmydata:capture</code>. You rarely need to type them: plain words like "add this" or "catch me up" work too.</div>
+      </section>
+
+      <section id="folder" aria-labelledby="folder-h">
+        <h2 id="folder-h">Choose a folder</h2>
+        <p>Pick or create an empty folder on your own computer, for example <code>Documents/Health vault</code>. Avoid:</p>
+        <ul>
+          <li><strong>Cloud-synced folders</strong> (iCloud, Dropbox, Google Drive, OneDrive), unless you're comfortable with your health records being copied there too. Setup warns you, in one line, if the folder you pick looks like one.</li>
+          <li><strong>Folders inside another Claude vault or a git repository</strong>, so your health records don't mix with other notes or end up in version control.</li>
+        </ul>
+        <p>You can move the folder later; it's just a folder. See <a href="#trouble">moving your vault</a>.</p>
+      </section>
+
+      <section id="project" aria-labelledby="project-h">
+        <h2 id="project-h">Set up a Claude Project</h2>
+        <p>A dedicated Project in the Claude desktop app keeps health sessions separate from everything else. It's optional in Claude Code (just work inside the vault folder), and strongly recommended in the desktop app.</p>
+        <ol>
+          <li>Create a new Project and <strong>link it to your vault folder</strong>.</li>
+          <li>If the Project has a memory setting, <strong>turn it off</strong>, or make sure that memory isn't shared with your other chats. The vault is the memory.</li>
+          <li>Paste this into the Project instructions:</li>
+        </ol>
+<pre class="code">This project is my personal health vault. The linked folder is the vault, and the ownmydata plugin maintains it.
+
+1. At the start of every conversation, read CLAUDE.md in the vault folder and follow it exactly. It holds the safety, privacy and filing rules. If the folder has no memory.md yet, run /ownmydata:setup-health-vault first.
+2. Use only the ownmydata skills here (/ownmydata:capture, intake, start, save, health-check, recenter). Never use another plugin's capture, sync, save, minutes or query skills in this project, even if a request sounds like one of theirs. Anything health-related goes into this vault and nowhere else.
+3. When I drop in a document or tell you something that happened, capture it. Don't ask me to fill in details.
+4. Never write my health information to Claude's memory, to any other folder or project, or into a web search.
+5. If I describe sudden or severe symptoms, tell me to get urgent care first, before anything else.</pre>
+        <div class="warn"><strong>Point 2 matters if you use other plugins.</strong> A notes or "chief of staff" plugin may also have a capture or save command. Without that line, "add this" with a lab report could be picked up by the wrong plugin and filed outside your vault.</div>
+      </section>
+
+      <section id="setup" aria-labelledby="setup-h">
+        <h2 id="setup-h">Create your vault</h2>
+        <p>In the Project (or in Claude Code, inside your vault folder), run:</p>
+<pre class="code">/ownmydata:setup-health-vault</pre>
+        <p>Claude asks two things, one at a time:</p>
+        <div class="chat">
+          <p class="claude"><span class="who">Claude</span>What name should the vault use for you? Just how you'd like it shown.</p>
+          <p class="you"><span class="who">You</span>Pat Sample</p>
+          <p class="claude"><span class="who">Claude</span>Where should the vault live? I'll use this folder unless you name another.</p>
+          <p class="you"><span class="who">You</span>Here is fine.</p>
+        </div>
+        <p>It copies the empty vault into the folder, explains in one paragraph where your data stays, and ends by inviting your first document. That's all. It never asks about your conditions or medicines up front: the vault learns from what you hand it.</p>
+        <p class="muted">If the folder already has a vault, setup stops and changes nothing.</p>
+      </section>
+
+      <section id="habits" aria-labelledby="habits-h">
+        <h2 id="habits-h">The three habits</h2>
+        <div class="steps">
+          <div class="step"><span class="n">01 · anytime</span><h3>Hand it over</h3><p>Drop in a document or say what happened. "Add this" works; so does <code>/ownmydata:capture</code>.</p></div>
+          <div class="step"><span class="n">02 · opening</span><h3>Start</h3><p><code>/ownmydata:start</code> or "catch me up": a few lines on each problem being followed, its last event, and what you're waiting on.</p></div>
+          <div class="step"><span class="n">03 · closing</span><h3>Save</h3><p><code>/ownmydata:save</code> or "that's all for now": anything not yet filed gets filed, and the summary for next time is refreshed.</p></div>
+        </div>
+        <p>And <strong>once, when you have 15 minutes</strong>: say "take my health history" for <a href="#intake">the interview</a>. Every so often, say "check my vault" for <a href="#upkeep">a health check</a>.</p>
+      </section>
+
+      <section id="capture" aria-labelledby="capture-h">
+        <h2 id="capture-h">Handing things over</h2>
+        <p>Anything about your health can go in. Claude decides what kind of record it is, writes it, and links it to the problem it belongs to.</p>
+        <h3>Documents</h3>
+        <ul>
+          <li><strong>Attach or drop a file</strong> into the conversation: lab results, a visit summary, a consultation or referral letter, an imaging or hearing-test report, a discharge summary, a prescription label, a vaccine record.</li>
+          <li><strong>A photo of paper</strong> works. Anything Claude can't read clearly is marked as unclear, never guessed.</li>
+          <li><strong>Pasted text</strong> works too; it's kept as a text original.</li>
+          <li><strong>Several at once:</strong> drop them all, or put them in the vault's <code>data/inbox/</code> folder and say "file what's in the inbox". You get one combined summary at the end.</li>
+        </ul>
+        <p>The original is copied into <code>data/documents/&lt;year&gt;/</code> and never edited again. Each original's fingerprint goes into <code>data/load-log.md</code>, so the same document is never filed twice: hand it over again and Claude just tells you where it already is.</p>
+        <h3>Sentences</h3>
+        <p>You don't need paperwork. Say what happened, in your own words:</p>
+        <div class="chat">
+          <p class="you"><span class="who">You</span>Saw the ENT today, she ordered a hearing test.</p>
+          <p class="claude"><span class="who">Claude</span>Saved: ENT visit (2026-10-12), linked to Left ear investigation.</p>
+          <p class="you"><span class="who">You</span>Started vitamin D, 1000 units a day.</p>
+          <p class="claude"><span class="who">Claude</span>Saved: Vitamin D 1000 units daily, as something you take now.</p>
+        </div>
+        <p>Things you say are recorded as <strong>your account</strong> ("from what you told me"), never dressed up as a doctor's diagnosis. Vague dates stay in your words: "as a teenager" is kept as "as a teenager", not turned into a year.</p>
+        <h3>What you get back</h3>
+        <p>Every capture ends with one line per main record, each starting with <strong>Saved:</strong>, and nothing else to do. Claude never asks you to fill in a missing field: if the document doesn't say it, the record doesn't either.</p>
+      </section>
+
+      <section id="check" aria-labelledby="check-h">
+        <h2 id="check-h">Checking and correcting</h2>
+        <p>When a document has numbers in it, Claude lists the ones it read, so you can glance at them against the original:</p>
+<pre class="code">Saved: Blood tests (2026-11-05), 3 results, not linked to any problem.
+
+Please check these numbers against the original so you know I read them correctly:
+- Ferritin 1?2 ug/L (middle digit unclear on the photo)
+- Hemoglobin 147 g/L
+- TSH 2.1 (no unit printed)</pre>
+        <ul>
+          <li><strong>Something's wrong?</strong> Say so: "the ferritin is 182". Only that value changes, and Claude replies with the corrected line ("Fixed: Ferritin 182 ug/L.").</li>
+          <li><strong>All correct?</strong> Say "numbers look right" and those records are marked as checked against the original.</li>
+          <li><strong>No time?</strong> Don't reply. Nothing happens, nothing nags you. Unchecked records simply say so wherever they're shown.</li>
+        </ul>
+      </section>
+
+      <section id="intake" aria-labelledby="intake-h">
+        <h2 id="intake-h">Your health history</h2>
+        <p>Documents rarely cover the background a new doctor asks about: allergies, past operations, family history. The interview fills that in. Start it with <code>/ownmydata:intake</code> or "take my health history". It takes about 10 to 20 minutes and only ever runs when you ask.</p>
+        <p>Claude asks the questions a family doctor asks a new patient, <strong>one at a time</strong>, in this order:</p>
+        <ol class="cols">
+          <li>About you</li><li>Allergies</li><li>Medications</li><li>Ongoing conditions</li><li>Past illnesses and hospital stays</li><li>Operations and procedures</li><li>Injuries</li><li>Family history</li><li>Vaccines</li><li>Check-ups and screenings</li><li>Lifestyle <span class="muted">(substance use only if you say yes)</span></li><li>Mental health <span class="muted">(only if you say yes)</span></li><li>Reproductive and sexual health <span class="muted">(only if you say yes)</span></li><li>Care team</li><li>Devices</li><li>Anything else</li>
+        </ol>
+        <p>Each section opens with a yes-or-no question, so a "no" moves straight on. Follow-ups are short and few. If your records already show something, Claude mentions it and only asks if there's more.</p>
+        <h3>You're in control</h3>
+        <div class="scroll">
+        <table class="table">
+          <thead><tr><th>Say</th><th>What happens</th></tr></thead>
+          <tbody>
+            <tr><td>"skip"</td><td>Next question, no comment.</td></tr>
+            <tr><td>"I don't know"</td><td>A complete answer. Nothing is recorded for that detail.</td></tr>
+            <tr><td>"next section"</td><td>Moves on to the next topic.</td></tr>
+            <tr><td>"pause"</td><td>Stops. Everything so far is saved. Say "continue my health history" any time to pick up where you left off.</td></tr>
+            <tr><td>"actually, I forgot…"</td><td>Adds or corrects it, then returns to where you were.</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <h3>The private sections</h3>
+        <p>Mental health, substance use, and reproductive and sexual health are only asked about after you say yes. A "no" is final for that interview. Anything you share there is stored as <strong>private</strong>: it's left out of the end-of-interview read-back, and the <a href="viewer.html#private">viewer</a> hides it until you choose to show it.</p>
+        <p>At the end, Claude reads back what it saved, one line per section, so you can catch mistakes.</p>
+      </section>
+
+      <section id="episodes" aria-labelledby="episodes-h">
+        <h2 id="episodes-h">Problems over time</h2>
+        <p>Health rarely happens in one visit. When something needs following (a symptom being investigated, a condition being treated), Claude opens an <strong>episode</strong>: one page for "the ear thing", with a summary, the open items you're waiting on, and a timeline of every visit, result and medicine linked to it.</p>
+        <ul>
+          <li>Refer to it however you like: "my ear", "the hearing thing". Episodes remember the names you use.</li>
+          <li>New documents about it are linked to it automatically.</li>
+          <li>When it's over, say so: <strong>"the ear thing is sorted, it was wax"</strong>. At the next save, Claude closes the episode with a short written conclusion: what happened, what was done, and anything the records still show as open.</li>
+        </ul>
+        <p>Claude only closes a problem when you say it's over, never by guessing.</p>
+      </section>
+
+      <section id="ask" aria-labelledby="ask-h">
+        <h2 id="ask-h">Asking questions</h2>
+        <p>Ask in plain words. Claude answers from your records and names the source.</p>
+        <div class="chat">
+          <p class="you"><span class="who">You</span>What happened with my ear?</p>
+          <p class="claude"><span class="who">Claude</span>The ENT saw you on 2026-10-12 and recorded "left-sided hearing loss, likely conductive" (consultation note, 2026-10-12). You had a hearing test on 2026-11-18, and the same day you said it was wax, cleared at the clinic.</p>
+        </div>
+        <p>Useful questions: "What medicines am I on?", "When was my last blood test, and was anything flagged?", "What did I want to ask the doctor?", "Who's my ENT?". If a value hasn't been checked against its original, the answer says so.</p>
+        <div class="note"><strong>Claude tells you what your records say, not what to do.</strong> It won't interpret a result as good or bad beyond the flags the lab printed, and it won't suggest starting or stopping treatment. Bring the questions to your clinician; the vault makes sure you have the facts.</div>
+      </section>
+
+      <section id="vault" aria-labelledby="vault-h">
+        <h2 id="vault-h">Inside your vault</h2>
+        <p>Your vault is a folder of plain markdown files you can open in any editor. You never need to touch them, but it helps to know what's there.</p>
+<pre class="code">your-vault/
+├── CLAUDE.md          <span class="c">how Claude behaves here: safety, privacy, tone</span>
+├── memory.md          <span class="c">the map: which folder holds what</span>
+├── memory/
+│   ├── _state.md      <span class="c">what's open right now</span>
+│   ├── episodes/      <span class="c">one page per problem being followed</span>
+│   ├── conditions/  encounters/  reports/  medications/
+│   ├── allergies/  immunizations/  procedures/  family-history/
+│   ├── patient/       <span class="c">you, plus care-team/ and devices/</span>
+│   ├── library/       <span class="c">questions for doctors, notes you asked to keep</span>
+│   └── reference/     <span class="c">the rules Claude follows when it writes</span>
+├── data/
+│   ├── inbox/         <span class="c">drop files here to be filed</span>
+│   ├── documents/     <span class="c">your originals, never edited</span>
+│   └── load-log.md    <span class="c">a fingerprint of every original</span>
+└── outputs/  trash/</pre>
+        <ul>
+          <li><strong>One record per file.</strong> Each opens with a block of structured data (in HL7 FHIR R4, the standard health systems use) followed by a short readable summary and its links.</li>
+          <li><strong>Every folder has an index and a change log</strong>, so you (or any AI) can see what's there and what changed when.</li>
+          <li><strong>Originals are sacred.</strong> Nothing in <code>data/documents/</code> is ever edited.</li>
+        </ul>
+        <p>To browse it comfortably, use the <a href="viewer.html">viewer app</a>. To see a complete example, look at the <a href="https://github.com/pifpof/ownmydata-health/tree/main/examples/sample-vault">fictional sample vault</a>.</p>
+      </section>
+
+      <section id="upkeep" aria-labelledby="upkeep-h">
+        <h2 id="upkeep-h">Keeping it healthy</h2>
+        <h3>Health check</h3>
+        <p>Every month or so, say <strong>"check my vault"</strong> (<code>/ownmydata:health-check</code>). Claude checks every record against the vault's rules, rebuilds the indexes, timelines and summary card, fixes what is safe to fix (broken links, missing log lines, outdated rule files) and reports the rest in plain words. It never changes a value, unit, range, flag or clinical wording.</p>
+        <h3>Recenter</h3>
+        <p>In a long session, Claude can drift: asking too many questions, sounding like it's giving advice, mentioning "missing fields". Say <strong>"you're asking too many questions"</strong> or <code>/ownmydata:recenter</code>, and it re-reads the vault's rules and corrects course.</p>
+        <h3>Backups</h3>
+        <p>Your vault is a folder, so back it up like any important folder: an external drive, or an encrypted backup you control. If you ever put it under git, the vault's <code>.gitignore</code> already keeps your records out of commits; never push a real vault to a public repository.</p>
+      </section>
+
+      <section id="privacy" aria-labelledby="privacy-h">
+        <h2 id="privacy-h">Privacy and safety</h2>
+        <div class="panel">
+          <ul>
+            <li><strong>Your vault is a folder on your computer.</strong> The project's code and examples never contain anyone's real data.</li>
+            <li><strong>The AI provider processes what you share.</strong> When you give Claude a document, its contents are processed so it can be read, as with anything you share with Claude.</li>
+            <li><strong>Claude writes your health information only into the vault:</strong> never into its own account memory, never into a web search.</li>
+            <li><strong>Keep health sessions separate.</strong> Use a Project with its memory off or separate, or an incognito chat, so the conversation itself isn't remembered elsewhere.</li>
+            <li><strong>Private topics stay private.</strong> Mental health, reproductive and sexual health, substance use and genetic results are marked private and handled with extra care.</li>
+          </ul>
+        </div>
+        <div class="warn"><strong>Not medical advice, and not an emergency service.</strong> If you describe sudden or severe symptoms, or anything that suggests you might harm yourself, Claude stops filing and tells you to get help first. Please do: contact your doctor, an urgent care service or your local emergency number.</div>
+      </section>
+
+      <section id="reference" aria-labelledby="reference-h">
+        <h2 id="reference-h">Command reference</h2>
+        <p>Plain words work for all of these; the commands are there if you prefer them.</p>
+        <div class="scroll">
+        <table class="table">
+          <thead><tr><th>Command</th><th>Or say</th><th>What it does</th></tr></thead>
+          <tbody>
+            <tr><td><code>/ownmydata:setup-health-vault</code></td><td>"set up my health vault"</td><td>Creates an empty vault. Two questions: your name and the folder.</td></tr>
+            <tr><td><code>/ownmydata:capture</code></td><td>"add this", or just describe what happened</td><td>Files a document or a sentence, links it, lists numbers to check. Also takes corrections and "numbers look right".</td></tr>
+            <tr><td><code>/ownmydata:intake</code></td><td>"take my health history"</td><td>The one-question-at-a-time background interview. Pause and resume any time.</td></tr>
+            <tr><td><code>/ownmydata:start</code></td><td>"catch me up", "what's open"</td><td>A short brief: problems being followed, last events, what's pending.</td></tr>
+            <tr><td><code>/ownmydata:save</code></td><td>"that's all for now", "wrap up"</td><td>Files anything left, closes finished problems, refreshes the summary card.</td></tr>
+            <tr><td><code>/ownmydata:health-check</code></td><td>"check my vault"</td><td>Checks every record, rebuilds indexes and timelines, fixes safe things.</td></tr>
+            <tr><td><code>/ownmydata:recenter</code></td><td>"you're asking too many questions"</td><td>Re-reads the vault's rules when a long session drifts.</td></tr>
+          </tbody>
+        </table>
+        </div>
+      </section>
+
+      <section id="trouble" aria-labelledby="trouble-h">
+        <h2 id="trouble-h">Troubleshooting</h2>
+        <h3>My document was filed by a different plugin</h3>
+        <p>Another plugin with a similar command picked it up. Add the <a href="#project">Project instruction</a> (point 2 matters), or use <code>/ownmydata:capture</code> explicitly. Then hand the document over again.</p>
+        <h3>Claude says it can't find the vault template</h3>
+        <p>The install is incomplete. Reinstall the plugin. If you installed single skills in the desktop app, make sure <code>setup-health-vault.skill</code> is the one from the release.</p>
+        <h3>"That one's already in your vault"</h3>
+        <p>That exact file was filed before; Claude links you to the record. Nothing is duplicated.</p>
+        <h3>A number was read wrong</h3>
+        <p>Say the right value ("the creatinine is 87, not 78"). Only that value changes. Photos with glare or smudges are the usual cause; a clearer photo or the PDF helps.</p>
+        <h3>Claude keeps asking me to fill things in</h3>
+        <p>It shouldn't. Say <code>/ownmydata:recenter</code> or "stop making me fill things in". It re-reads its rules and stops.</p>
+        <h3>My vault was set up with an older version</h3>
+        <p>Nothing to do. The first time you run the interview or a health check, Claude refreshes the vault's rule files from the plugin. Only the plugin's own rule files change, never your records.</p>
+        <h3>Moving your vault</h3>
+        <p>Move or copy the whole folder, then re-link your Claude Project to the new location (and choose it again in the viewer). Nothing inside depends on where the folder sits.</p>
+        <h3>Still stuck?</h3>
+        <p>Open an <a href="https://github.com/pifpof/ownmydata-health/issues">issue on GitHub</a> with what you did and what happened, using fictional details only, or write to <a href="mailto:info@ownmydata.health">info@ownmydata.health</a>.</p>
+      </section>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <nav aria-label="Footer">
+      <a href="index.html">Help home</a>
+      <a href="viewer.html">Viewer guide</a>
+      <a href="https://ownmydata.health/">ownmydata.health</a>
+      <a href="https://github.com/pifpof/ownmydata-health">GitHub</a>
+      <a href="mailto:info@ownmydata.health">info@ownmydata.health</a>
+    </nav>
+    <p>Open source, MIT licensed. Examples use fictional records only. Not medical advice.</p>
+  </div>
+</footer>
+</body>
+</html>
