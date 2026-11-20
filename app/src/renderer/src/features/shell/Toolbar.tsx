@@ -56,7 +56,7 @@ export function Toolbar() {
           <li key={i} className="flex min-w-0 items-center gap-1.5">
             {i > 0 && <span className="text-muted-foreground">›</span>}
             {c.to ? (
-              <button onClick={() => go(c.to!)} className="text-primary truncate hover:underline">
+              <button onClick={() => go(c.to!)} className="text-link truncate hover:underline">
                 {c.label}
               </button>
             ) : (

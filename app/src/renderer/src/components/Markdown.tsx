@@ -45,7 +45,7 @@ function makeComponents(docPath: string, paths: Set<string>, go: (path: string) 
     td: (p) => <td className="border-b px-3 py-2 align-top [word-break:keep-all]">{p.children}</td>,
     a: ({ href, children }) => {
       if (!href) return <span>{children}</span>
-      if (href.startsWith('#')) return <span className="text-primary">{children}</span>
+      if (href.startsWith('#')) return <span className="text-link">{children}</span>
       if (/^https?:/i.test(href)) {
         return (
           <a
@@ -55,7 +55,7 @@ function makeComponents(docPath: string, paths: Set<string>, go: (path: string) 
               e.preventDefault()
               void api.openExternal(href)
             }}
-            className="text-primary hover:text-primary-hover underline underline-offset-2"
+            className="text-link hover:text-link-hover underline underline-offset-2"
           >
             {children}
           </a>
@@ -70,7 +70,7 @@ function makeComponents(docPath: string, paths: Set<string>, go: (path: string) 
               e.preventDefault()
               go(target)
             }}
-            className="text-primary hover:text-primary-hover underline underline-offset-2"
+            className="text-link hover:text-link-hover underline underline-offset-2"
           >
             {children}
           </a>

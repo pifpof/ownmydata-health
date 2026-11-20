@@ -6,6 +6,7 @@ import { SectionTile } from '@/components/icons'
 import { Markdown, prepareBody } from '@/components/Markdown'
 import { StatusChip } from '@/components/StatusChip'
 import { Input } from '@/components/ui/input'
+import mark from '@/assets/images/mark.png'
 import { useOpened } from '@/lib/useOpened'
 import { useRoute } from '@/store/route'
 import { useVault } from '@/store/vault'
@@ -53,7 +54,9 @@ export function OverviewView() {
 
       <section aria-labelledby="records" className="mb-10 overflow-hidden rounded-[16px] border">
         <div className="flex items-center gap-3 border-b px-5 py-4">
-          <SectionTile icon="folder-heart" tone="teal" />
+          <span className="bg-accent inline-flex size-10 shrink-0 items-center justify-center rounded-[10px]">
+            <img src={mark} alt="" className="size-7 object-contain" draggable={false} />
+          </span>
           <div>
             <h2 id="records" className="font-sans text-[17px] font-semibold tracking-normal">
               Health records

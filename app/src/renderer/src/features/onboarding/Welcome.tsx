@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { FolderOpen, Lock } from 'lucide-react'
 import type { DetectResult } from '@shared/vault-model'
+import logo from '@/assets/images/logo.png'
 import { Button } from '@/components/ui/button'
 import { reasonText } from '@/lib/reasons'
 
@@ -18,7 +19,7 @@ export function Welcome({
     <div className="flex h-full flex-col">
       <div className="drag h-12 shrink-0" />
       <main className="mx-auto flex w-full max-w-[560px] flex-1 flex-col justify-center px-8 pb-16">
-        <p className="eyebrow mb-4">ownmydata</p>
+        <img src={logo} alt="Own My Data" className="mb-10 h-auto w-[260px] select-none" draggable={false} />
         <h1 className="mb-4">Your health vault, at a glance.</h1>
         <p className="lede mb-8">
           This app shows the health vault Claude keeps for you. It only reads the folder: nothing is

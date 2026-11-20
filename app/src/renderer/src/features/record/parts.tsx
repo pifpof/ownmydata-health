@@ -23,7 +23,7 @@ function RecordLink({ path, children }: { path: string; children: React.ReactNod
   return (
     <button
       onClick={() => go({ kind: 'file', path })}
-      className="text-primary hover:text-primary-hover text-left underline underline-offset-2"
+      className="text-link hover:text-link-hover text-left underline underline-offset-2"
     >
       {children}
     </button>
@@ -80,13 +80,13 @@ export function Sources({ items, verified }: { items: SourceView[]; verified: bo
                 <span className="mt-1 flex flex-wrap gap-3">
                   <button
                     onClick={() => void api.openOriginal(s.path!)}
-                    className="text-primary inline-flex items-center gap-1 text-[13px] font-medium hover:underline"
+                    className="text-link inline-flex items-center gap-1 text-[13px] font-medium hover:underline"
                   >
                     <ExternalLink className="size-3.5" aria-hidden /> Open original
                   </button>
                   <button
                     onClick={() => void api.showInFolder(s.path!)}
-                    className="text-primary inline-flex items-center gap-1 text-[13px] font-medium hover:underline"
+                    className="text-link inline-flex items-center gap-1 text-[13px] font-medium hover:underline"
                   >
                     <FolderOpen className="size-3.5" aria-hidden /> {revealLabel()}
                   </button>

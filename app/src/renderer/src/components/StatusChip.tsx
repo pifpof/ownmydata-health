@@ -1,8 +1,8 @@
 import { cn } from '@/lib/utils'
 
 const TONE: Record<string, string> = {
-  active: 'border-primary-light bg-accent text-primary',
-  taking: 'border-primary-light bg-accent text-primary',
+  active: 'border-primary-light bg-accent text-link',
+  taking: 'border-primary-light bg-accent text-link',
   planned: 'border-warning-border bg-warning-bg text-warning',
   provisional: 'border-warning-border bg-warning-bg text-warning',
   differential: 'border-warning-border bg-warning-bg text-warning',

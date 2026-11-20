@@ -71,7 +71,7 @@ function Row({ node, depth }: { node: Node; depth: number }) {
         className="hover:bg-secondary flex w-full items-center gap-1.5 py-1 pr-3 text-left text-[14px] font-medium"
       >
         {expanded ? <ChevronDown className="size-4" /> : <ChevronRight className="size-4" />}
-        <Folder className={cn('size-4', expanded ? 'text-primary' : 'text-muted-foreground')} aria-hidden />
+        <Folder className={cn('size-4', expanded ? 'text-link' : 'text-muted-foreground')} aria-hidden />
         {node.name}
       </button>
       {expanded && (
