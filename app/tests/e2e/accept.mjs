@@ -64,7 +64,19 @@ await clickText(page, 'button', 'Choose your vault folder')
 await page.waitForTimeout(500)
 await shot(page, '03-overview')
 const ov = await text(page)
-check('VA1', ov.includes('Pat Sample') && ov.includes('In your vault'), 'overview with owner name')
+check('VA1', ov.includes('Pat Sample') && ov.includes('Health records'), 'overview with owner name')
+
+// Overview search across all sections; private records only match neutral words
+const search = page.getByPlaceholder('Search all your health records…')
+await search.fill('ear thing')
+await page.waitForTimeout(200)
+await shot(page, '03b-overview-search')
+const found = await text(page)
+await search.fill('anxiety')
+await page.waitForTimeout(200)
+const hiddenWord = await text(page)
+await search.fill('')
+check('OV1', found.includes('Left ear investigation') && hiddenWord.includes('Nothing matches'), 'overview search')
 
 // VA5: drill and back
 await clickText(page, 'nav button', 'Episodes')
@@ -169,7 +181,7 @@ await app.close()
 // VA3: relaunch remembers
 ;({ app, page } = await launch())
 await page.waitForTimeout(500)
-check('VA3a', (await text(page)).includes('In your vault'), 'relaunch opens overview')
+check('VA3a', (await text(page)).includes('Health records'), 'relaunch opens overview')
 // Restricted hidden again after relaunch
 await clickText(page, 'nav button', 'Conditions')
 await clickText(page, 'tbody tr', 'Private condition')

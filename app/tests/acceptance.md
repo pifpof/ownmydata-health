@@ -39,6 +39,7 @@ PASS VA3b moved vault -> choose with reason
 | VA11 | `fetch('https://example.com')` from the page is blocked | e2e driver | pass |
 | VA12 | Vault byte-identical before and after loading and opening every file | unit test (SHA-256 over the fixture) | pass |
 | VA13 | `npm run build:mac` → arm64 and x64 DMGs; the packaged app opens to Welcome | build + Playwright launch of `dist/mac-arm64/ownmydata.app` | pass (unsigned) |
+| OV1 | Overview: section cards with icon tiles and counts; search across all records finds "ear thing", and a private record's hidden words find nothing | e2e driver + screenshots (2026-11-20) | pass |
 | VA14 | Typecheck, lint, unit tests | `npm run typecheck && npm run lint && npm test` (20 tests) | pass |
 
 ## Not yet checked

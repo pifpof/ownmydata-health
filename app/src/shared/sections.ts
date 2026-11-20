@@ -24,6 +24,22 @@ export type SectionId =
 
 export type GroupId = 'health' | 'people' | 'files' | 'vault'
 
+export type Tone =
+  | 'pink'
+  | 'orange'
+  | 'amber'
+  | 'yellow'
+  | 'lime'
+  | 'green'
+  | 'emerald'
+  | 'teal'
+  | 'cyan'
+  | 'sky'
+  | 'indigo'
+  | 'violet'
+  | 'fuchsia'
+  | 'slate'
+
 export type ColumnId = 'title' | 'date' | 'status' | 'kind' | 'description'
 
 export interface SectionDef {
@@ -32,6 +48,8 @@ export interface SectionDef {
   group: GroupId
   /** lucide icon name, mapped to a component in the renderer. */
   icon: string
+  /** Colour family for the section's icon tile (mapped to classes in the renderer). */
+  tone: Tone
   /** Folder prefixes under the vault root, with a trailing slash. Longest prefix wins. */
   folders: string[]
   /** Record types that belong here; 'any' takes whatever sits in the folders. */
@@ -56,6 +74,7 @@ export const SECTIONS: SectionDef[] = [
     label: 'Episodes',
     group: 'health',
     icon: 'folder-heart',
+    tone: 'pink',
     folders: ['memory/episodes/'],
     types: ['episode'],
     columns: STD,
@@ -66,6 +85,7 @@ export const SECTIONS: SectionDef[] = [
     label: 'Conditions',
     group: 'health',
     icon: 'stethoscope',
+    tone: 'orange',
     folders: ['memory/conditions/'],
     types: ['condition'],
     columns: STD,
@@ -76,6 +96,7 @@ export const SECTIONS: SectionDef[] = [
     label: 'Medications',
     group: 'health',
     icon: 'pill',
+    tone: 'amber',
     folders: ['memory/medications/'],
     types: ['medication-statement'],
     columns: STD,
@@ -86,6 +107,7 @@ export const SECTIONS: SectionDef[] = [
     label: 'Allergies',
     group: 'health',
     icon: 'shield-alert',
+    tone: 'lime',
     folders: ['memory/allergies/'],
     types: ['allergy-intolerance'],
     columns: STD,
@@ -96,6 +118,7 @@ export const SECTIONS: SectionDef[] = [
     label: 'Results',
     group: 'health',
     icon: 'flask-conical',
+    tone: 'yellow',
     folders: ['memory/reports/', 'memory/observations/'],
     types: ['diagnostic-report', 'observation'],
     columns: ['title', 'date', 'kind', 'description'],
@@ -106,6 +129,7 @@ export const SECTIONS: SectionDef[] = [
     label: 'Visits',
     group: 'health',
     icon: 'calendar-days',
+    tone: 'cyan',
     folders: ['memory/encounters/'],
     types: ['encounter'],
     columns: STD,
@@ -116,6 +140,7 @@ export const SECTIONS: SectionDef[] = [
     label: 'Procedures',
     group: 'health',
     icon: 'scissors',
+    tone: 'emerald',
     folders: ['memory/procedures/'],
     types: ['procedure'],
     columns: STD,
@@ -126,6 +151,7 @@ export const SECTIONS: SectionDef[] = [
     label: 'Vaccines',
     group: 'health',
     icon: 'syringe',
+    tone: 'green',
     folders: ['memory/immunizations/'],
     types: ['immunization'],
     columns: STD,
@@ -136,6 +162,7 @@ export const SECTIONS: SectionDef[] = [
     label: 'Family history',
     group: 'health',
     icon: 'users',
+    tone: 'indigo',
     folders: ['memory/family-history/'],
     types: ['family-member-history'],
     columns: ['title', 'status', 'description'],
@@ -146,6 +173,7 @@ export const SECTIONS: SectionDef[] = [
     label: 'You',
     group: 'people',
     icon: 'user-round',
+    tone: 'slate',
     folders: ['memory/patient/'],
     types: ['patient'],
     columns: ['title', 'description'],
@@ -156,6 +184,7 @@ export const SECTIONS: SectionDef[] = [
     label: 'Care team',
     group: 'people',
     icon: 'hospital',
+    tone: 'teal',
     folders: ['memory/patient/care-team/'],
     types: ['practitioner', 'organization'],
     columns: ['title', 'kind', 'description'],
@@ -166,6 +195,7 @@ export const SECTIONS: SectionDef[] = [
     label: 'Devices',
     group: 'people',
     icon: 'ear',
+    tone: 'fuchsia',
     folders: ['memory/patient/devices/'],
     types: ['device'],
     columns: ['title', 'status', 'description'],
@@ -176,6 +206,7 @@ export const SECTIONS: SectionDef[] = [
     label: 'Documents',
     group: 'files',
     icon: 'file-text',
+    tone: 'sky',
     folders: ['memory/documents/'],
     types: ['document-reference'],
     columns: ['title', 'date', 'description'],
@@ -186,6 +217,7 @@ export const SECTIONS: SectionDef[] = [
     label: 'Notes and questions',
     group: 'files',
     icon: 'notebook-pen',
+    tone: 'violet',
     folders: ['memory/library/'],
     types: 'any',
     columns: ['title', 'date', 'description'],
@@ -196,6 +228,7 @@ export const SECTIONS: SectionDef[] = [
     label: 'Decisions',
     group: 'files',
     icon: 'scale',
+    tone: 'slate',
     folders: ['memory/decisions/'],
     types: 'any',
     columns: ['title', 'date', 'description'],
@@ -206,6 +239,7 @@ export const SECTIONS: SectionDef[] = [
     label: 'Plans',
     group: 'files',
     icon: 'list-checks',
+    tone: 'teal',
     folders: ['memory/plans/'],
     types: 'any',
     columns: ['title', 'date', 'description'],
@@ -216,6 +250,7 @@ export const SECTIONS: SectionDef[] = [
     label: 'Other',
     group: 'vault',
     icon: 'shapes',
+    tone: 'slate',
     folders: [],
     types: 'any',
     columns: ['title', 'kind', 'description'],
