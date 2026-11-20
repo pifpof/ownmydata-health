@@ -1,0 +1,29 @@
+name: Idea or change
+description: Suggest a feature, a format change, an importer, a translation, or something you'd like to work on.
+labels: [idea]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Two rules shape every change: **no real health data in this repository**, and **no forms or required fields** for the person using it. Ideas that keep both are the easiest to say yes to.
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem does this solve, and for whom?
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: Your idea
+      description: If it changes how records are written, say which part of docs/architecture-spec.md it touches.
+    validations:
+      required: true
+  - type: dropdown
+    id: help
+    attributes:
+      label: Would you like to work on it?
+      options:
+        - Yes
+        - Maybe, with some help
+        - No, just suggesting

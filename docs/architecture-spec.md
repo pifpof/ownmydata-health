@@ -1164,4 +1164,4 @@ These were not confirmed in the sources read for this spec. Treat them as open.
 - FHIR version and regulation: ONC and CMS interoperability rules, US Core (isp.healthit.gov, hl7.org/fhir/us/core).
 - Wearable-to-FHIR mapping: Stanford HealthKitOnFHIR, HL7 Personal Health Record format IG, Virtually Healthcare IG observation definitions.
 - The AI Chief of Staff plugin (github.com/pifpof/parallel79-cos): skills, schema, memory file format and `CLAUDE.md` conventions.
-- Competitive review: `docs/competitive-review.md` (runesleo/ai-health-vault, kamens/hstack, Claude-Ally-Health, Health.md, health-skillz, chartfold, medgemma-vault).
+- Prior art reviewed: runesleo/ai-health-vault, kamens/hstack, Claude-Ally-Health, Health.md, health-skillz, chartfold, medgemma-vault.

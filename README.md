@@ -6,6 +6,17 @@ Drop in a lab report, a visit note, a specialist letter or a photo of one, or ju
 
 You never fill in a form. You never tag anything. You never answer a question just so a record is complete.
 
+## Why this exists
+
+1. AI will play a bigger role in our healthcare. Of everything ahead, that is the one thing we can be sure of.
+2. AI works best with more data, and with data that is relevant and accurate. The more complete the picture of your health, the better it can help.
+3. That picture shouldn't be owned by governments, insurance companies or health providers.
+4. It's yours. You have the right to own it, and to use it however you choose.
+
+That's what this project stands for. It's open source because owning your data shouldn't depend on any one company. It gives anyone a way to start tracking their health data in a complete, structured format that is portable and usable in any other system, and, most importantly, built on the Open Knowledge Format so it's in the best shape for AI to retrieve from.
+
+**If you believe that too, there's a place for you here, whether or not you write code.** See [Contributing](#contributing).
+
 > **Not medical advice.** ownmydata keeps your records straight and tells you what they say. It does not diagnose, prescribe, or tell you to start, stop or change treatment. For sudden or severe symptoms it tells you to get urgent care.
 
 ---
@@ -26,11 +37,7 @@ You never fill in a form. You never tag anything. You never answer a question ju
 
 ### From GitHub
 
-```
-/plugin install ownmydata --marketplace pifpof/ownmydata-health
-```
-
-On older Claude Code versions, add the marketplace first:
+In Claude Code:
 
 ```
 /plugin marketplace add pifpof/ownmydata-health
@@ -77,6 +84,10 @@ In the Project (or in Claude Code, inside your vault folder), run:
 ```
 
 It asks two things, your name and where the vault should live, and you're done. Then drop in your first document.
+
+### The viewer app (optional, macOS)
+
+To browse your vault outside Claude, download `ownmydata-<version>-arm64.dmg` (Apple Silicon) or `-x64.dmg` (Intel) from the [latest release](https://github.com/pifpof/ownmydata-health/releases), drag it to Applications, right-click it and choose **Open** the first time (it isn't signed yet), and choose your vault folder. It only reads the folder, never goes online, and keeps private records hidden until you click Show. More in [app/README.md](app/README.md).
 
 ---
 
@@ -133,11 +144,20 @@ How it stays trustworthy:
 
 ## Status
 
-v0.2.0. Skills: `setup-health-vault`, `capture`, `intake`, `start`, `save`, `health-check`, `recenter`. Reads PDFs, photos of documents, pasted text and plain sentences.
+v0.2.0. Skills: `setup-health-vault`, `capture`, `intake`, `start`, `save`, `health-check`, `recenter`. Reads PDFs, photos of documents, pasted text and plain sentences. Plus a read-only viewer app for macOS (`app/`).
 
 Planned: wearable imports into monthly ledgers, trend pages, visit-prep briefs, a question-answering skill, FHIR export and import.
 
-Design documents: `docs/architecture-spec.md` (the knowledge-base architecture) and `docs/competitive-review.md`. Expected behaviour on the fictional fixtures: `fixtures/EXPECTED.md`; latest acceptance run: `tests/acceptance.md`.
+Design document: `docs/architecture-spec.md` (the knowledge-base architecture). Changes by version: `CHANGELOG.md`. Expected behaviour on the fictional fixtures: `fixtures/EXPECTED.md`; latest acceptance run: `tests/acceptance.md`.
+
+## Contributing
+
+Code, test documents, translations, reviews of the format, or just telling us what broke: all of it helps. Start with [CONTRIBUTING.md](CONTRIBUTING.md). Two rules matter more than any other:
+
+- **No real health data in this repository, ever.** Issues, pull requests, fixtures and examples use fictional records only.
+- **No forms, no required fields.** The format shapes what Claude writes, never what the person has to supply.
+
+Please read the [Code of Conduct](CODE_OF_CONDUCT.md). To report a security or privacy problem, see [SECURITY.md](SECURITY.md). Website: [ownmydata.health](https://ownmydata.health).
 
 ## License
 

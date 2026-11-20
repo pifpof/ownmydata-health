@@ -6,7 +6,6 @@ This repo is the source of the `ownmydata` Claude plugin (repo `pifpof/ownmydata
 
 1. `fixtures/EXPECTED.md` and `tests/acceptance.md`: what v0.1 must do, and the last acceptance run. Win over the spec for v0.1 behaviour.
 2. `docs/architecture-spec.md`: the knowledge-base architecture (OKF v0.2 + FHIR R4). Wins for file formats and anything beyond v0.1.
-3. `docs/competitive-review.md`: context only.
 
 ## Rules for working in this repo
 
@@ -23,4 +22,4 @@ This repo is the source of the `ownmydata` Claude plugin (repo `pifpof/ownmydata
 
 ## Layout
 
-`skills/` (the six v0.1 skills) · `schema/` (empty vault copied by setup) · `references/` (shared rules, copied into the vault's `memory/reference/`) · `fixtures/` (fictional inputs + `EXPECTED.md`) · `examples/sample-vault/` · `tests/` · `docs/`.
+`skills/` (the six v0.1 skills) · `schema/` (empty vault copied by setup) · `references/` (shared rules, copied into the vault's `memory/reference/`) · `fixtures/` (fictional inputs + `EXPECTED.md`) · `examples/sample-vault/` · `tests/` · `docs/` · `app/` (the read-only viewer app; its own rules are in `app/CLAUDE.md`).
