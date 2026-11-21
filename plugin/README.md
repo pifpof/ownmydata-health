@@ -77,4 +77,4 @@ The [ownmydata-health repository](https://github.com/pifpof/ownmydata-health) al
 - a complete fictional example vault;
 - the design documents.
 
-Open source under the MIT licence. Website: [ownmydata.health](https://ownmydata.health).
+Open source under the MIT licence, © 2026 1617289 B.C. Ltd. See the LICENSE and NOTICE.md files. Contact: hello@parallel79.com. Website: [ownmydata.health](https://ownmydata.health).

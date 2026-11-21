@@ -3,8 +3,9 @@
   "version": "0.2.1",
   "description": "Own your health data. Keeps a personal health vault: drop in a lab report, visit note or photo, or just say what happened, and Claude files it as plain markdown in FHIR shape, links it to the problem it belongs to, and answers questions later with the source named. Local files, no forms, not medical advice.",
   "author": {
-    "name": "Shahed Khalili / Parallel79",
-    "email": "shahed@parallel79.com"
+    "name": "1617289 B.C. Ltd.",
+    "email": "hello@parallel79.com",
+    "url": "https://ownmydata.health"
   },
   "homepage": "https://ownmydata.health",
   "repository": "https://github.com/pifpof/ownmydata-health",

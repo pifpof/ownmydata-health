@@ -64,7 +64,7 @@ ownmydata is not a medical device and gives no medical advice. Changes must not 
 
 ## Licence
 
-By contributing you agree that your contribution is licensed under the MIT License, the same as the project. Do not add code tables or content you don't have the right to share (SNOMED CT and some national code sets have licence terms; ask first).
+By contributing you agree that your contribution is licensed under the MIT License, the same as the project. By opening a pull request you confirm that you wrote the contribution or otherwise have the right to submit it under the MIT License. Do not add code tables or content you don't have the right to share (SNOMED CT and some national code sets have licence terms; ask first).
 
 ## Conduct
 

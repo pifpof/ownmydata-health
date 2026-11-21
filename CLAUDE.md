@@ -9,6 +9,7 @@ This repo is the source of the `ownmydata` Claude plugin (repo `pifpof/ownmydata
 
 ## Rules for working in this repo
 
+- **Ownership and contact.** Copyright, licence, author and owner fields name 1617289 B.C. Ltd. with hello@parallel79.com. Never add personal names, personal emails, addresses, phone numbers or tax numbers to the repo. Keep `LICENSE` and `NOTICE.md` identical to their copies in `plugin/` (`install.sh` checks).
 - **No real health data, ever.** Only the fictional documents in `fixtures/` may be captured, and only into `.test-vault/` (gitignored) or, at M6, `examples/sample-vault/`. If you see anything that looks like a real person's health information, stop and tell the maintainer.
 - **The governing principle:** FHIR shapes what Claude writes, never what the user supplies. Every skill decision is tested against it: no forms, no required fields, no completion questions, no blocking steps.
 - **Generic plugin.** No maintainer- or user-specific names, clinics, conditions or paths inside `plugin/` (its `skills/` and `schema/`).

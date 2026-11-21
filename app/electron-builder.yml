@@ -1,5 +1,6 @@
 appId: com.parallel79.ownmydata
 productName: ownmydata
+copyright: "Copyright © 2026 1617289 B.C. Ltd."
 directories:
   buildResources: resources
 files:

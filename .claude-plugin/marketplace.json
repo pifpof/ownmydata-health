@@ -2,8 +2,8 @@
   "name": "ownmydata",
   "description": "Own your health data: a personal health vault plugin.",
   "owner": {
-    "name": "Shahed Khalili / Parallel79",
-    "email": "shahed@parallel79.com"
+    "name": "1617289 B.C. Ltd.",
+    "email": "hello@parallel79.com"
   },
   "plugins": [
     {
@@ -12,7 +12,7 @@
       "description": "Keeps a personal health vault in plain markdown. Drop in a document or say what happened; Claude files it, links it, and answers from it with the source named.",
       "version": "0.2.1",
       "author": {
-        "name": "Shahed Khalili / Parallel79"
+        "name": "1617289 B.C. Ltd."
       },
       "license": "MIT"
     }

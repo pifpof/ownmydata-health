@@ -176,4 +176,6 @@ Please read the [Code of Conduct](CODE_OF_CONDUCT.md). To report a security or p
 
 ## License
 
-MIT. Code allow-list content from LOINC® (http://loinc.org), copyright © Regenstrief Institute, Inc., used under the LOINC license.
+MIT, © 2026 1617289 B.C. Ltd. See [LICENSE](LICENSE) and [NOTICE.md](NOTICE.md).
+
+Code allow-list content from LOINC® (http://loinc.org), copyright © Regenstrief Institute, Inc., used under the LOINC license.

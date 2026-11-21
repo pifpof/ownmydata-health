@@ -3,7 +3,7 @@
 **Project:** Health Vault (`ownmydata.health`), a Claude plugin that builds a personal health-data wiki
 **Document:** Architecture of the knowledge base (folders, files, formats). Not yet the skill specs.
 **Version:** 0.2 draft, 2026-11-17 (v0.2: zero-lift principle, required-field handling, post-capture verification notice, competitive-review changes, v0.1 scope)
-**Maintainer:** Parallel79 · **License:** MIT
+**Maintainer:** 1617289 B.C. Ltd. · **License:** MIT
 
 All example files in this document use **fictional data**. None of it describes a real person.
 

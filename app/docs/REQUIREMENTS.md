@@ -2,7 +2,7 @@
 
 **Version:** v0 (scaffold + basic navigation)
 **Date:** 2026-11-19
-**Owner:** Shahed Khalili, Parallel79°
+**Owner:** 1617289 B.C. Ltd.
 **Status:** Draft for approval. Decided 2026-11-19: lives in the plugin repo under `app/`, released with it; restricted records hidden until Show.
 **Companion doc:** `IMPLEMENTATION_PLAN.md` (build order, estimates)
 
@@ -157,7 +157,7 @@ The point of v0 is that later visual work changes views, not plumbing.
 
 ## 8. Acceptance (v0 is done when)
 
-Run against a copy of `examples/sample-vault` from the plugin repo, then spot-checked by Shahed on his real vault.
+Run against a copy of `examples/sample-vault` from the plugin repo, then spot-checked by the maintainer on a real vault.
 
 | # | Check |
 |---|---|

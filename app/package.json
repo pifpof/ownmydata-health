@@ -4,7 +4,10 @@
   "version": "0.2.1",
   "description": "A private, read-only viewer for your ownmydata health vault.",
   "main": "./out/main/index.js",
-  "author": "Parallel79°",
+  "author": {
+    "name": "1617289 B.C. Ltd.",
+    "email": "hello@parallel79.com"
+  },
   "license": "MIT",
   "private": true,
   "scripts": {

@@ -6,7 +6,7 @@
 #   1. dist/ownmydata.zip
 #      The whole plugin, from plugin/: .claude-plugin/, skills/, schema/ (the
 #      empty vault template, including memory/reference/ rules), README.md,
-#      LICENSE.
+#      LICENSE, NOTICE.md.
 #      Unzip and install the folder as a Claude Code plugin, or push the repo
 #      to GitHub and run:
 #        /plugin marketplace add pifpof/ownmydata-health
@@ -48,6 +48,11 @@ for f in .claude-plugin/marketplace.json package.json app/package.json; do
   if [[ "$v" != "$PACK_VERSION" ]]; then err "$f version $v != plugin/.claude-plugin/plugin.json $PACK_VERSION"; exit 1; fi
 done
 
+# LICENSE and NOTICE.md live at the repo root and, identical, inside plugin/ (repo CLAUDE.md rule)
+for f in LICENSE NOTICE.md; do
+  cmp -s "$REPO_ROOT/$f" "$PLUGIN_DIR/$f" || { err "$f and plugin/$f differ"; exit 1; }
+done
+
 [[ " $* " == *" --clean "* ]] && { say "Cleaning dist/"; rm -rf "$DIST_DIR"; }
 mkdir -p "$DIST_DIR"
 rm -rf "$TMP_DIR"; mkdir -p "$TMP_DIR"
@@ -58,7 +63,7 @@ say "Building ownmydata v${PACK_VERSION}"
 STAGE="$TMP_DIR/ownmydata"
 mkdir -p "$STAGE"
 cp -R "$PLUGIN_DIR/.claude-plugin" "$PLUGIN_DIR/skills" "$PLUGIN_DIR/schema" "$STAGE/"
-cp "$PLUGIN_DIR/README.md" "$PLUGIN_DIR/LICENSE" "$STAGE/"
+cp "$PLUGIN_DIR/README.md" "$PLUGIN_DIR/LICENSE" "$PLUGIN_DIR/NOTICE.md" "$STAGE/"
 # The zip is installable on its own (/plugin marketplace add ./ownmydata), so it carries the
 # marketplace manifest too, with the plugin at the zip root instead of ./plugin.
 sed 's#"source": "./plugin"#"source": "./"#' "$REPO_ROOT/.claude-plugin/marketplace.json" > "$STAGE/.claude-plugin/marketplace.json"

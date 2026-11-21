@@ -10,4 +10,4 @@ This project is about health data, so one more expectation applies here. Never a
 
 ## Reporting
 
-Report anything that breaks this code to **info@ownmydata.health**. Reports are handled privately. The maintainers will review each report and take the action they judge appropriate, following the Contributor Covenant's enforcement guidelines.
+Report anything that breaks this code to **hello@parallel79.com**. Reports are handled privately. The maintainers will review each report and take the action they judge appropriate, following the Contributor Covenant's enforcement guidelines.

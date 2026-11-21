@@ -4,7 +4,7 @@ ownmydata keeps people's health records, so problems that could expose that data
 
 ## Reporting a problem
 
-Email **info@ownmydata.health** with "Security" in the subject. Please don't open a public issue for:
+Email **hello@parallel79.com** with "Security" in the subject. Please don't open a public issue for:
 
 - anything that could cause health information to leave the vault folder (into Claude's memory, another folder, a web search, a commit, an export),
 - a way the vault template or a skill could put real data into a git repository,
@@ -14,7 +14,7 @@ Use fictional data to show the problem. You'll get a reply within a few days.
 
 ## If real health data was posted here by mistake
 
-If you see real health information in an issue, pull request or commit, email info@ownmydata.health straight away and don't repost or quote it. The maintainers will hide or remove it and, where needed, rewrite history.
+If you see real health information in an issue, pull request or commit, email hello@parallel79.com straight away and don't repost or quote it. The maintainers will hide or remove it and, where needed, rewrite history.
 
 ## Scope
 

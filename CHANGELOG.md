@@ -5,6 +5,7 @@
 - Plugin icon added (`plugin/.claude-plugin/icon.png`), for the Claude plugin directory listing.
 - README: new section "What the plugin runs, sends and fetches", listing every tool and command the skills use, what they read outside the vault, and that the plugin and viewer make no network requests.
 - The plugin moved into its own folder, `plugin/` (skills, vault template, manifest, icon, a short listing README and the licence). Install commands are unchanged. The viewer app, docs, fixtures, examples and tests remain in the repo, outside the plugin, so installers get only what the plugin needs.
+- Copyright and package metadata now name 1617289 B.C. Ltd.; added NOTICE.md. One contact address across the repo and guides: hello@parallel79.com.
 
 ## 0.2.0
 
