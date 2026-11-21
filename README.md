@@ -171,7 +171,7 @@ How it stays trustworthy:
 
 ## Status
 
-v0.2.0. Skills: `setup-health-vault`, `capture`, `intake`, `start`, `save`, `health-check`, `recenter`. Reads PDFs, photos of documents, pasted text and plain sentences. Plus a read-only viewer app for macOS (`app/`).
+v0.2.1. Skills: `setup-health-vault`, `capture`, `intake`, `start`, `save`, `health-check`, `recenter`. Reads PDFs, photos of documents, pasted text and plain sentences. Plus a read-only viewer app for macOS (`app/`).
 
 Planned: wearable imports into monthly ledgers, trend pages, visit-prep briefs, a question-answering skill, FHIR export and import.
 
