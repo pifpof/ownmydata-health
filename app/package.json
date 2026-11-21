@@ -1,7 +1,7 @@
 {
   "name": "ownmydata-app",
   "productName": "ownmydata",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "A private, read-only viewer for your Own My Data.Health vault.",
   "main": "./out/main/index.js",
   "author": {

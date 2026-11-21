@@ -1,8 +1,6 @@
 ---
 name: start
 description: "Start-of-session brief for the Own My Data.Health health vault. Use whenever the person says '/start' or '/ownmydata:start', opens a health session, comes back after time away, or asks 'where do things stand', 'what's going on with my health stuff', 'catch me up', 'what's pending', or 'what's open'. Reads the vault's router, hot-state card and active problem hubs, then opens in under ten lines with the active problems (last event, what's pending), anything new since the last session, and anything due for a look. Never lists bookkeeping such as unverified files or missing fields."
-version: 0.1.0
-allowed-tools: [Read, Bash]
 ---
 
 # Own My Data.Health: Start

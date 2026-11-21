@@ -1,8 +1,6 @@
 ---
 name: intake
 description: "Health history interview for the Own My Data.Health health vault. Use whenever the person says '/intake' or '/ownmydata:intake', 'take my health history', 'interview me', 'fill in my background', 'ask me about my health history', 'let's do my medical history', 'add my allergies and conditions', or wants to resume a paused history interview ('let's continue the interview'). Asks the questions a family doctor asks a new patient, one at a time: allergies, medications, conditions, hospital stays, surgeries, injuries, family history, vaccines, check-ups and screenings, lifestyle, and, only with permission, mental health and reproductive health. Every question can be skipped, the person can pause at any time, and each answer is saved as it comes. Never starts on its own: only when the person asks."
-version: 0.2.0
-allowed-tools: [Read, Write, Edit, Bash]
 ---
 
 # Own My Data.Health: Intake

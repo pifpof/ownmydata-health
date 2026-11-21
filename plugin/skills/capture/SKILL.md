@@ -1,8 +1,6 @@
 ---
 name: capture
 description: "Add health information to the Own My Data.Health health vault. Use whenever the person says '/capture' or '/ownmydata:capture', attaches or drops in a lab report, blood test results, visit summary, consultation note, referral or specialist letter, imaging or audiology report, discharge summary, prescription label, vaccine record or a photo of one, puts files in data/inbox, says 'add this', 'save this report', 'file this', or simply describes something that happened to their health ('saw the ENT today', 'had a hearing test', 'started a new medication', 'my ear is ringing again', 'got my flu shot'). Also use for follow-ups to a capture: a correction ('the creatinine is 87 not 78') or a confirmation ('numbers look right'). Files the original, writes the records in FHIR shape, links them to the right problem, and then lists the numbers it read so the person can check them. Never asks the person to fill anything in."
-version: 0.1.0
-allowed-tools: [Read, Write, Edit, Bash]
 ---
 
 # Own My Data.Health: Capture

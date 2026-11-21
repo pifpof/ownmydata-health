@@ -57,7 +57,7 @@ Each record is a plain markdown file you can read. The data follows HL7 FHIR R4,
 
 ## What the plugin runs, sends and fetches
 
-- **Runs:** seven skills that read and write markdown files in your vault folder. Four tools are used: Read, Write, Edit and Bash; recenter only reads. Bash is used for file work and nothing else:
+- **Runs:** seven skills that read and write markdown files in your vault folder. Four tools are used: Read, Write, Edit and Bash; recenter only reads. The skills don't pre-approve any of them, so Claude Code asks before a skill writes a file or runs a command, unless you've allowed it in your settings. Bash is used for file work and nothing else:
   - date, for timestamps;
   - mkdir, cp and mv, to create folders and file your originals: a document you hand over is copied into the vault's documents folder, and one dropped in the vault's inbox is moved there;
   - shasum, to fingerprint originals so nothing is filed twice;

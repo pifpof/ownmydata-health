@@ -659,7 +659,7 @@ ownmydata-health/                       open-source repo (pifpof/ownmydata-healt
 ├── skills/<each skill>/SKILL.md (+ references/)
 ├── schema/                             the empty template vault copied by setup
 │   ├── CLAUDE.md  memory.md  .gitignore
-│   └── memory/ … data/ … outputs/ … trash/   (folders with index.md, log.md, .gitkeep)
+│   └── memory/ … data/ … outputs/ … trash/   (folders with index.md and log.md; setup creates the empty ones)
 ├── references/
 │   ├── resource-map.md                 section 3.1 and 5.2 as a lookup table
 │   ├── row-schemas.md                  section 8 schemas

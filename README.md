@@ -154,7 +154,7 @@ How it stays trustworthy:
 
 ## What the plugin runs, sends and fetches
 
-- **Runs:** seven skills that read and write markdown files in your vault folder. Four tools are used: Read, Write, Edit and Bash; `recenter` only reads. Bash is used for file work and nothing else:
+- **Runs:** seven skills that read and write markdown files in your vault folder. Four tools are used: Read, Write, Edit and Bash; `recenter` only reads. The skills don't pre-approve any of them, so Claude Code asks before a skill writes a file or runs a command, unless you've allowed it in your settings. Bash is used for file work and nothing else:
   - `date`, for timestamps;
   - `mkdir`, `cp` and `mv`, to create folders and file your originals: a document you hand over is copied into `data/documents/`, and one dropped in `data/inbox/` is moved there;
   - `shasum`, to fingerprint originals so nothing is filed twice;
@@ -171,7 +171,7 @@ How it stays trustworthy:
 
 ## Status
 
-v0.2.1. Skills: `setup-health-vault`, `capture`, `intake`, `start`, `save`, `health-check`, `recenter`. Reads PDFs, photos of documents, pasted text and plain sentences. Plus a read-only viewer app for macOS (`app/`).
+v0.2.2. Skills: `setup-health-vault`, `capture`, `intake`, `start`, `save`, `health-check`, `recenter`. Reads PDFs, photos of documents, pasted text and plain sentences. Plus a read-only viewer app for macOS (`app/`).
 
 Planned: wearable imports into monthly ledgers, trend pages, visit-prep briefs, a question-answering skill, FHIR export and import.
 

@@ -1,11 +1,21 @@
 # Changelog
 
+## 0.2.2
+
+Fixes for the Claude plugin directory's validation. Install commands are unchanged.
+
+- The skills no longer pre-approve Write, Edit or Bash (`recenter` still lists Read). Claude Code now asks before a skill writes a file or runs a command, unless you've allowed it in your settings. The READMEs say so.
+- Removed the unread `version` field from each skill's frontmatter.
+- The vault template no longer ships empty placeholder files: setup creates the empty folders itself. The template's git safety file is now `_gitignore.txt`; setup still installs it as `.gitignore`.
+
 ## 0.2.1
 
 - Plugin icon added (`plugin/.claude-plugin/icon.png`), for the Claude plugin directory listing.
 - README: new section "What the plugin runs, sends and fetches", listing every tool and command the skills use, what they read outside the vault, and that the plugin and viewer make no network requests.
 - The plugin moved into its own folder, `plugin/` (skills, vault template, manifest, icon, a short listing README and the licence). Install commands are unchanged. The viewer app, docs, fixtures, examples and tests remain in the repo, outside the plugin, so installers get only what the plugin needs.
 - Copyright and package metadata now name 1617289 B.C. Ltd.; added NOTICE.md. One contact address across the repo and guides: hello@parallel79.com.
+- One name in everything people read: "Own My Data.Health". `ownmydata` stays as the plugin's identifier (commands, package and file names).
+- The README now opens with why the project exists.
 
 ## 0.2.0
 

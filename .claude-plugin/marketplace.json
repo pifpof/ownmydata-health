@@ -10,7 +10,7 @@
       "name": "ownmydata",
       "source": "./plugin",
       "description": "Keeps a personal health vault in plain markdown. Drop in a document or say what happened; Claude files it, links it, and answers from it with the source named.",
-      "version": "0.2.1",
+      "version": "0.2.2",
       "author": {
         "name": "1617289 B.C. Ltd."
       },

@@ -1,8 +1,6 @@
 ---
 name: setup-health-vault
 description: "First-time setup for a personal health vault (Own My Data.Health). Use whenever someone says '/setup-health-vault' or '/ownmydata:setup-health-vault', 'set up my health vault', 'start a health vault', wants to start keeping their health records with Claude, or when any Own My Data.Health skill finds no vault in the current folder (no memory.md with layout hv-1.0). Asks only the person's name and where the vault folder should live, copies the empty vault template, explains in one paragraph where the data stays, and ends by inviting the first document. Never asks for medical history up front: the vault learns from documents as they arrive."
-version: 0.1.0
-allowed-tools: [Read, Write, Edit, Bash]
 ---
 
 # Own My Data.Health: Set up the health vault
@@ -63,7 +61,7 @@ Don't wait for an answer. Don't repeat it.
 
 ## Step 4: Find the vault template
 
-The template is a folder that contains `memory.md`, `CLAUDE.md`, `_gitignore` and `memory/`. Look in this order and use the first that exists:
+The template is a folder that contains `memory.md`, `CLAUDE.md`, `_gitignore.txt` and `memory/`. Look in this order and use the first that exists:
 
 1. `<this skill's base directory>/references/vault-template/` (present when the skill was installed on its own as a `.skill` file)
 2. `<this skill's base directory>/../../schema/` (present when the whole plugin is installed)
@@ -80,9 +78,12 @@ With Bash, never overwriting anything:
 
 ```bash
 cp -Rn "<template>/." "<vault>/"
+mkdir -p "<vault>/data/inbox" "<vault>/data/documents" "<vault>/data/fhir-import" "<vault>/data/wearables" "<vault>/outputs/exports" "<vault>/outputs/visit-prep" "<vault>/outputs/reviews" "<vault>/trash"
 ```
 
-Then the vault's git safety file: if `<vault>/.gitignore` doesn't exist, `mv "<vault>/_gitignore" "<vault>/.gitignore"`. If it does exist, append any of `memory/`, `data/`, `outputs/`, `trash/` that are missing from it, then delete `<vault>/_gitignore`. Delete any `.DS_Store` that came across.
+The template ships without empty folders, so the `mkdir -p` line creates them.
+
+Then the vault's git safety file: if `<vault>/.gitignore` doesn't exist, `mv "<vault>/_gitignore.txt" "<vault>/.gitignore"`. If it does exist, append any of `memory/`, `data/`, `outputs/`, `trash/` that are missing from it, then delete `<vault>/_gitignore.txt`. (An older template may call it `_gitignore`; treat that the same way.) Delete any `.DS_Store` that came across.
 
 The rules files arrive with the template in `memory/reference/`. The other skills read them from there.
 

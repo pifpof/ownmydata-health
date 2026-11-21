@@ -1,8 +1,6 @@
 ---
 name: health-check
 description: "Check and tidy the Own My Data.Health health vault. Use whenever the person says '/health-check' or '/ownmydata:health-check', asks to 'check the vault', 'tidy up', 'is everything in order', 'fix the links', or periodically as maintenance. Validates every record against the vault's rules (file format, ids, folders, FHIR R4 status values, links and references, sources, lab tables, codes, duplicate originals), rebuilds the folder indexes, problem timelines and hot-state card from the files, fixes what is safe to fix, and reports the rest grouped by severity. Never edits a value, unit, range, flag or code, and never turns missing information into a task for the person."
-version: 0.1.0
-allowed-tools: [Read, Write, Edit, Bash]
 ---
 
 # Own My Data.Health: Health check

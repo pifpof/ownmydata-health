@@ -1,7 +1,6 @@
 ---
 name: recenter
 description: "Mid-session reset for the Own My Data.Health health vault. Use whenever the person says '/recenter' or '/ownmydata:recenter', says 'you're asking me too many questions', 'that sounded like medical advice', 'stop making me fill things in', 'why are you telling me about missing fields', or otherwise flags that the assistant is off. Also run it unprompted, before the next substantive reply, when a system message shows the conversation was compacted or summarized, or right after a long stretch of heavy tool output (several documents captured in a row). Re-reads the vault's CLAUDE.md, especially the Safety and Zero lift sections, checks the recent replies for drift, and names and corrects any drift in one line."
-version: 0.1.0
 allowed-tools: [Read]
 ---
 
