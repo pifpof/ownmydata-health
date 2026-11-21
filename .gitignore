@@ -23,3 +23,6 @@ app/out/
 /trash/
 .venv/
 docs/guide.zip
+
+# Private change orders and update requirements (never pushed)
+docs/updates/
