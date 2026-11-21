@@ -10,7 +10,7 @@
       "name": "ownmydata",
       "source": "./",
       "description": "Keeps a personal health vault in plain markdown. Drop in a document or say what happened; Claude files it, links it, and answers from it with the source named.",
-      "version": "0.2.0",
+      "version": "0.2.1",
       "author": {
         "name": "Shahed Khalili / Parallel79"
       },

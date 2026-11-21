@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.2.1
+
+- Plugin icon added (`.claude-plugin/icon.png`), for the Claude plugin directory listing.
+- README: new section "What the plugin runs, sends and fetches", listing every tool and command the skills use, what they read outside the vault, and that the plugin and viewer make no network requests.
+
 ## 0.2.0
 
 - New: the ownmydata viewer, a read-only desktop app for browsing a vault (`app/`, macOS DMGs on the release). Sections, lists with a filter, record pages with key facts, sources and backlinks, working links, live refresh. Never writes to the vault, never goes online, hides private records until you click Show.

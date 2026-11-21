@@ -140,6 +140,21 @@ How it stays trustworthy:
 - Setup warns you, in one line, if the folder you pick syncs to a cloud service.
 - The vault's `.gitignore` keeps `memory/`, `data/`, `outputs/` and `trash/` out of git, in case you ever put the folder under version control. Never push a real vault to a public repository.
 
+## What the plugin runs, sends and fetches
+
+- **Runs:** seven skills that read and write markdown files in your vault folder. Four tools are used: Read, Write, Edit and Bash; `recenter` only reads. Bash is used for file work and nothing else:
+  - `date`, for timestamps;
+  - `mkdir`, `cp` and `mv`, to create folders and file your originals: a document you hand over is copied into `data/documents/`, and one dropped in `data/inbox/` is moved there;
+  - `shasum`, to fingerprint originals so nothing is filed twice;
+  - `find` and `grep`, to list and search the vault;
+  - `git ls-files`, during `health-check` only if your vault is inside a git repository, to check that no health files are tracked. It never commits or pushes.
+- **Reads outside your vault:** setup reads the empty vault template that ships with the plugin. If it can't find it next to the skill, it looks for the plugin's own files under `~/.claude` or `~/Library/Application Support/Claude`. Capture reads the documents you hand it, wherever they are.
+- **Has none of these:** no hooks, no MCP servers, no background processes.
+- **Sends:** nothing. The plugin makes no network requests and has no servers, accounts or telemetry.
+- **Fetches:** nothing. The one web address inside the skills, `https://ownmydata.health/CodeSystem/…`, is a label written into records for values without a standard code. It is never opened.
+- **Your AI provider:** sees whatever you share with it in the chat, as in any chat.
+- **The viewer app (optional):** read-only, and it never goes online. A content security policy and a block in the app's network session stop every request, so there are no update checks, telemetry or remote fonts. Clicking a web link in a record opens it in your normal browser.
+
 ---
 
 ## Status
