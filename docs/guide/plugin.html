@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Plugin guide · ownmydata help</title>
-<meta name="description" content="The complete guide to the ownmydata Claude plugin: install, set up your vault, hand over documents, take your health history, and keep the vault healthy.">
+<title>Plugin guide · Own My Data.Health help</title>
+<meta name="description" content="The complete guide to the Own My Data.Health Claude plugin: install, set up your vault, hand over documents, take your health history, and keep the vault healthy.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <meta name="theme-color" content="#0d1b2a">
 <link rel="preload" href="fonts/schibsted-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
@@ -13,7 +13,7 @@
 <body>
 <header class="nav">
   <div class="wrap">
-    <a class="mark" href="index.html">own<span>my</span>data<small>help</small></a>
+    <a class="mark" href="index.html">Own My Data<span>.Health</span><small>help</small></a>
     <nav aria-label="Guides">
       <ul>
         <li class="hide-xs"><a href="index.html">Start here</a></li>
@@ -29,7 +29,7 @@
   <div class="wrap hero">
     <p class="eyebrow">Plugin guide · v0.2</p>
     <h1>Hand it over. <em>Claude files it.</em></h1>
-    <p class="lede">The ownmydata plugin is a set of skills for Claude. You drop in a lab report, a visit note or a photo of a letter, or just say what happened, and Claude writes it into your vault: linked to the right problem, with the original kept untouched. You never fill in a form.</p>
+    <p class="lede">The Own My Data.Health plugin is a set of skills for Claude. You drop in a lab report, a visit note or a photo of a letter, or just say what happened, and Claude writes it into your vault: linked to the right problem, with the original kept untouched. You never fill in a form.</p>
   </div>
 
   <div class="wrap guide">
@@ -103,10 +103,10 @@
           <li>If the Project has a memory setting, <strong>turn it off</strong>, or make sure that memory isn't shared with your other chats. The vault is the memory.</li>
           <li>Paste this into the Project instructions:</li>
         </ol>
-<pre class="code">This project is my personal health vault. The linked folder is the vault, and the ownmydata plugin maintains it.
+<pre class="code">This project is my personal health vault. The linked folder is the vault, and the Own My Data.Health plugin maintains it.
 
 1. At the start of every conversation, read CLAUDE.md in the vault folder and follow it exactly. It holds the safety, privacy and filing rules. If the folder has no memory.md yet, run /ownmydata:setup-health-vault first.
-2. Use only the ownmydata skills here (/ownmydata:capture, intake, start, save, health-check, recenter). Never use another plugin's capture, sync, save, minutes or query skills in this project, even if a request sounds like one of theirs. Anything health-related goes into this vault and nowhere else.
+2. Use only the Own My Data.Health skills here (/ownmydata:capture, intake, start, save, health-check, recenter). Never use another plugin's capture, sync, save, minutes or query skills in this project, even if a request sounds like one of theirs. Anything health-related goes into this vault and nowhere else.
 3. When I drop in a document or tell you something that happened, capture it. Don't ask me to fill in details.
 4. Never write my health information to Claude's memory, to any other folder or project, or into a web search.
 5. If I describe sudden or severe symptoms, tell me to get urgent care first, before anything else.</pre>

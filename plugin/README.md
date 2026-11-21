@@ -1,6 +1,6 @@
-# ownmydata
+# Own My Data.Health
 
-**Own your health data.** ownmydata keeps your health records in a folder of plain text files on your own computer, and Claude does the filing for you.
+**Own your health data.** Own My Data.Health keeps your health records in a folder of plain text files on your own computer, and Claude does the filing for you.
 
 Drop in a lab report, a visit note, a specialist letter or a photo of one, or just say what happened ("saw the ENT today, she ordered a hearing test"). Claude files the original, writes it up, links it to the problem it belongs to, and later answers "what happened with my ear?" with the records named.
 
@@ -8,7 +8,7 @@ You never fill in a form. You never tag anything. You never answer a question ju
 
 **Who it's for:** anyone who wants one complete, accurate record of their own health, kept by them and not by a portal, a clinic or an insurer. That includes people managing a long-running condition, preparing for appointments, changing doctors, or keeping records for a family member who has asked them to.
 
-> **Not medical advice.** ownmydata keeps your records straight and tells you what they say. It does not diagnose, prescribe, or tell you to start, stop or change treatment. For sudden or severe symptoms it tells you to get urgent care.
+> **Not medical advice.** Own My Data.Health keeps your records straight and tells you what they say. It does not diagnose, prescribe, or tell you to start, stop or change treatment. For sudden or severe symptoms it tells you to get urgent care.
 
 ## Install
 

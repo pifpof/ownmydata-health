@@ -2,7 +2,7 @@
   "name": "ownmydata-app",
   "productName": "ownmydata",
   "version": "0.2.1",
-  "description": "A private, read-only viewer for your ownmydata health vault.",
+  "description": "A private, read-only viewer for your Own My Data.Health vault.",
   "main": "./out/main/index.js",
   "author": {
     "name": "1617289 B.C. Ltd.",

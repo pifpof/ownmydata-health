@@ -1,17 +1,17 @@
-# ownmydata viewer
+# Own My Data.Health viewer
 
-A desktop app for browsing your ownmydata health vault: episodes, conditions, medications, results, visits, documents and the rest, with links between them that work like a website.
+A desktop app for browsing your Own My Data.Health health vault: episodes, conditions, medications, results, visits, documents and the rest, with links between them that work like a website.
 
-**It only reads.** The ownmydata plugin is the only thing that writes to the vault; the viewer never changes a file. **It never goes online**: no telemetry, no update checks, no remote fonts, and every network request is blocked twice (a content security policy and a block in the app's network session). Private records (mental health, reproductive and sexual health, substance use, genetic results) stay hidden until you click **Show**, and are hidden again every time the app opens.
+**It only reads.** The Own My Data.Health plugin is the only thing that writes to the vault; the viewer never changes a file. **It never goes online**: no telemetry, no update checks, no remote fonts, and every network request is blocked twice (a content security policy and a block in the app's network session). Private records (mental health, reproductive and sexual health, substance use, genetic results) stay hidden until you click **Show**, and are hidden again every time the app opens.
 
-Reads vaults with `layout: "hv-1.0"` (ownmydata plugin v0.1 and v0.2).
+Reads vaults with `layout: "hv-1.0"` (Own My Data.Health plugin v0.1 and v0.2).
 
 ## Install (macOS)
 
 1. Download `ownmydata-<version>-arm64.dmg` (Apple Silicon) or `-x64.dmg` (Intel) from the GitHub release.
 2. Open the DMG and drag **ownmydata** to Applications.
 3. The app isn't signed yet, so the first time, **right-click it and choose Open**, then Open again.
-4. Choose your vault folder: the folder you picked when you set up ownmydata (it has a file called `memory.md`).
+4. Choose your vault folder: the folder you picked when you set up Own My Data.Health (it has a file called `memory.md`).
 
 ## What you see
 

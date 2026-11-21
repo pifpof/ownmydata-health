@@ -1,11 +1,11 @@
 ---
 name: setup-health-vault
-description: "First-time setup for a personal health vault (ownmydata). Use whenever someone says '/setup-health-vault' or '/ownmydata:setup-health-vault', 'set up my health vault', 'start a health vault', wants to start keeping their health records with Claude, or when any ownmydata skill finds no vault in the current folder (no memory.md with layout hv-1.0). Asks only the person's name and where the vault folder should live, copies the empty vault template, explains in one paragraph where the data stays, and ends by inviting the first document. Never asks for medical history up front: the vault learns from documents as they arrive."
+description: "First-time setup for a personal health vault (Own My Data.Health). Use whenever someone says '/setup-health-vault' or '/ownmydata:setup-health-vault', 'set up my health vault', 'start a health vault', wants to start keeping their health records with Claude, or when any Own My Data.Health skill finds no vault in the current folder (no memory.md with layout hv-1.0). Asks only the person's name and where the vault folder should live, copies the empty vault template, explains in one paragraph where the data stays, and ends by inviting the first document. Never asks for medical history up front: the vault learns from documents as they arrive."
 version: 0.1.0
 allowed-tools: [Read, Write, Edit, Bash]
 ---
 
-# ownmydata: Set up the health vault
+# Own My Data.Health: Set up the health vault
 
 ## What This Skill Does
 

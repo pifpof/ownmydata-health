@@ -19,7 +19,7 @@ export function Welcome({
     <div className="flex h-full flex-col">
       <div className="drag h-12 shrink-0" />
       <main className="mx-auto flex w-full max-w-[560px] flex-1 flex-col justify-center px-8 pb-16">
-        <img src={logo} alt="Own My Data" className="mb-10 h-auto w-[260px] select-none" draggable={false} />
+        <img src={logo} alt="Own My Data.Health" className="mb-10 h-auto w-[260px] select-none" draggable={false} />
         <h1 className="mb-4">Your health vault, at a glance.</h1>
         <p className="lede mb-8">
           This app shows the health vault Claude keeps for you. It only reads the folder: nothing is

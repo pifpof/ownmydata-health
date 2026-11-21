@@ -1,4 +1,4 @@
-# ownmydata Viewer: v0 Implementation Plan
+# Own My Data.Health Viewer: v0 Implementation Plan
 
 **Date:** 2026-11-19
 **Reads with:** `REQUIREMENTS.md`

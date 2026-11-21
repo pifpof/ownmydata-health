@@ -1,4 +1,4 @@
-# ownmydata help guides
+# Own My Data.Health help guides
 
 Static HTML, no build step, no third-party requests. Styled to match [ownmydata.health](https://ownmydata.health) (`pifpof/ownmydata-website`): same tokens, self-hosted fonts and components, light and dark.
 

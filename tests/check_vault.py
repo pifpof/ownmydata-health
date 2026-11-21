@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Test helper for ownmydata vaults. NOT used by any skill (skills are scriptless in v0.1).
+"""Test helper for Own My Data.Health vaults. NOT used by any skill (skills are scriptless in v0.1).
 
 Usage: .venv/bin/python tests/check_vault.py <vault-root>
 

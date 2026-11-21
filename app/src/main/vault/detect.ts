@@ -5,7 +5,7 @@ import { parseMarkdown } from './parse'
 
 export const SUPPORTED_LAYOUTS = ['hv-1.0']
 
-/** Is this folder an ownmydata health vault? Reads `memory.md` only; writes nothing. */
+/** Is this folder an Own My Data.Health health vault? Reads `memory.md` only; writes nothing. */
 export async function detectVault(path: string): Promise<DetectResult> {
   try {
     const s = await stat(path)

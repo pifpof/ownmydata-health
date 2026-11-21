@@ -1,5 +1,5 @@
 /* global document */
-// Acceptance driver for the ownmydata viewer (VA1-VA12). Fictional vault only.
+// Acceptance driver for the Own My Data.Health viewer (VA1-VA12). Fictional vault only.
 // Usage: npm run accept. Screenshots and results land in $TMPDIR/ownmydata-accept/.
 import { _electron as electron } from 'playwright-core'
 import fs from 'node:fs'

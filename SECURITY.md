@@ -1,6 +1,6 @@
 # Security and privacy
 
-ownmydata keeps people's health records, so problems that could expose that data are treated as the most serious kind of bug.
+Own My Data.Health keeps people's health records, so problems that could expose that data are treated as the most serious kind of bug.
 
 ## Reporting a problem
 

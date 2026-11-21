@@ -1,6 +1,6 @@
-# ownmydata
+# Own My Data.Health
 
-**We have the right to own our health data.** ownmydata was created on that one belief, and it matters more than ever in a future where AI is becoming part of how our healthcare works.
+**We have the right to own our health data.** Own My Data.Health was created on that one belief, and it matters more than ever in a future where AI is becoming part of how our healthcare works.
 
 Today your health story is scattered. A lab report in one portal, a specialist's letter in an email, a prescription in a drawer, a family history that lives only in your memory. Each clinic, insurer and system holds a piece, and none of them holds the whole picture. When AI starts helping with care, it will help most where the picture is complete and accurate. The question is who holds that picture. We believe it should be you.
 
@@ -13,7 +13,7 @@ Today your health story is scattered. A lab report in one portal, a specialist's
 
 ## A community, not a product
 
-ownmydata is built by people who want the same thing: to **gather** our own health data, **keep it safe**, and **use it to get better care**. Better questions at the next appointment. A complete history when you change doctors. The right numbers in front of the right person. A picture of your health that an AI you choose can actually help with.
+Own My Data.Health is built by people who want the same thing: to **gather** our own health data, **keep it safe**, and **use it to get better care**. Better questions at the next appointment. A complete history when you change doctors. The right numbers in front of the right person. A picture of your health that an AI you choose can actually help with.
 
 We help each other do that. It's open source because owning your data shouldn't depend on any one company, including us. Nothing about it is locked in: if this project vanished tomorrow, your records would still be yours, and still readable.
 
@@ -21,7 +21,7 @@ We help each other do that. It's open source because owning your data shouldn't 
 
 ## What it does
 
-ownmydata is a Claude plugin that keeps your health records in a folder of plain text files on your own computer, and does the filing for you.
+Own My Data.Health is a Claude plugin that keeps your health records in a folder of plain text files on your own computer, and does the filing for you.
 
 Drop in a lab report, a visit note, a specialist letter or a photo of one, or just say what happened ("saw the ENT today, she ordered a hearing test"). Claude files the original, writes it up, links it to the problem it belongs to, and later answers "what happened with my ear?" with the records named.
 
@@ -29,7 +29,7 @@ You never fill in a form. You never tag anything. You never answer a question ju
 
 Your records follow HL7 FHIR R4, the standard health systems use, so they're portable to any other system. The folder follows the Open Knowledge Format, so it's in the best shape for any AI to find its way around.
 
-> **Not medical advice.** ownmydata keeps your records straight and tells you what they say. It does not diagnose, prescribe, or tell you to start, stop or change treatment. For sudden or severe symptoms it tells you to get urgent care.
+> **Not medical advice.** Own My Data.Health keeps your records straight and tells you what they say. It does not diagnose, prescribe, or tell you to start, stop or change treatment. For sudden or severe symptoms it tells you to get urgent care.
 
 ---
 
@@ -76,10 +76,10 @@ A dedicated Project keeps health sessions separate from everything else.
 3. Paste this into the Project instructions:
 
    ```
-   This project is my personal health vault. The linked folder is the vault, and the ownmydata plugin maintains it.
+   This project is my personal health vault. The linked folder is the vault, and the Own My Data.Health plugin maintains it.
 
    1. At the start of every conversation, read CLAUDE.md in the vault folder and follow it exactly. It holds the safety, privacy and filing rules. If the folder has no memory.md yet, run /ownmydata:setup-health-vault first.
-   2. Use only the ownmydata skills here (/ownmydata:capture, intake, start, save, health-check, recenter). Never use another plugin's capture, sync, save, minutes or query skills in this project, even if a request sounds like one of theirs. Anything health-related goes into this vault and nowhere else.
+   2. Use only the Own My Data.Health skills here (/ownmydata:capture, intake, start, save, health-check, recenter). Never use another plugin's capture, sync, save, minutes or query skills in this project, even if a request sounds like one of theirs. Anything health-related goes into this vault and nowhere else.
    3. When I drop in a document or tell you something that happened, capture it. Don't ask me to fill in details.
    4. Never write my health information to Claude's memory, to any other folder or project, or into a web search.
    5. If I describe sudden or severe symptoms, tell me to get urgent care first, before anything else.

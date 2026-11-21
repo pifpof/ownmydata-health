@@ -1,4 +1,4 @@
-# ownmydata viewer: developer instructions
+# Own My Data.Health viewer: developer instructions
 
 Read `docs/REQUIREMENTS.md` and `docs/IMPLEMENTATION_PLAN.md` first. The repo-level rules in `../CLAUDE.md` apply too.
 

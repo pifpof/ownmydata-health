@@ -1,6 +1,6 @@
-# Contributing to ownmydata
+# Contributing to Own My Data.Health
 
-Thanks for being here. ownmydata exists because people should own their health data, and it gets better with every person who shows up: developers, clinicians, people who keep their own records, translators, writers, skeptics.
+Thanks for being here. Own My Data.Health exists because people should own their health data, and it gets better with every person who shows up: developers, clinicians, people who keep their own records, translators, writers, skeptics.
 
 ## Two rules before anything else
 
@@ -60,7 +60,7 @@ If you change how records are written, keep these:
 
 ## Safety
 
-ownmydata is not a medical device and gives no medical advice. Changes must not make it diagnose, prescribe, give doses, predict prognosis, or advise starting, stopping or changing treatment. Red-flag symptoms always get "seek urgent care" first. Changes to the safety rules get extra review.
+Own My Data.Health is not a medical device and gives no medical advice. Changes must not make it diagnose, prescribe, give doses, predict prognosis, or advise starting, stopping or changing treatment. Red-flag symptoms always get "seek urgent care" first. Changes to the safety rules get extra review.
 
 ## Licence
 

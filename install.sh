@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# install.sh: build distributable packages for the ownmydata plugin.
+# install.sh: build distributable packages for the Own My Data.Health plugin (ownmydata).
 #
 # Produces in dist/:
 #
@@ -57,7 +57,7 @@ done
 mkdir -p "$DIST_DIR"
 rm -rf "$TMP_DIR"; mkdir -p "$TMP_DIR"
 
-say "Building ownmydata v${PACK_VERSION}"
+say "Building Own My Data.Health (ownmydata) v${PACK_VERSION}"
 
 # 1. Combined package
 STAGE="$TMP_DIR/ownmydata"

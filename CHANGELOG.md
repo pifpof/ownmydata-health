@@ -9,7 +9,7 @@
 
 ## 0.2.0
 
-- New: the ownmydata viewer, a read-only desktop app for browsing a vault (`app/`, macOS DMGs on the release). Sections, lists with a filter, record pages with key facts, sources and backlinks, working links, live refresh. Never writes to the vault, never goes online, hides private records until you click Show.
+- New: the Own My Data.Health viewer, a read-only desktop app for browsing a vault (`app/`, macOS DMGs on the release). Sections, lists with a filter, record pages with key facts, sources and backlinks, working links, live refresh. Never writes to the vault, never goes online, hides private records until you click Show.
 - New skill: `intake`, a health history interview. Asks the questions a family doctor asks a new patient, one at a time: allergies, medications, conditions, hospital stays, surgeries, injuries, family history, vaccines, check-ups and screenings, lifestyle, and, only with permission, mental and reproductive health. Every question can be skipped, the interview can be paused and resumed, and each answer is saved as it comes. Runs only when asked.
 - New: help guides in `docs/guide/` (start here, plugin guide, viewer guide). Static HTML, open `docs/guide/index.html` in a browser.
 - README: "Why this exists" (the project's manifesto), corrected GitHub install commands, Contributing section.

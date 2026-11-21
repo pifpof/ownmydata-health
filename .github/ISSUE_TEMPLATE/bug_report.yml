@@ -16,7 +16,7 @@ body:
   - type: input
     id: version
     attributes:
-      label: ownmydata version
+      label: Own My Data.Health version
       placeholder: "0.2.0"
     validations:
       required: true

@@ -1,4 +1,4 @@
-/* ownmydata help guides. Tokens, fonts and components follow ownmydata.health (pifpof/ownmydata-website).
+/* Own My Data.Health help guides. Tokens, fonts and components follow ownmydata.health (pifpof/ownmydata-website).
    Fonts are self-hosted (SIL OFL 1.1, see fonts/LICENSE.md): no third-party requests.
    The accent is one token: change --accent (and its dark-mode value) to re-brand every page. */
 @font-face { font-family: "Schibsted Grotesk"; font-style: normal; font-weight: 400 900; font-display: swap; src: url("fonts/schibsted-grotesk-latin-wght-normal.woff2") format("woff2"); }
@@ -47,7 +47,7 @@ img { max-width: 100%; }
 /* nav (same as the site) */
 .nav { position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--paper) 92%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
 .nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 60px; }
-.mark { font-weight: 800; letter-spacing: -0.03em; font-size: 1.2rem; text-decoration: none; }
+.mark { font-weight: 800; letter-spacing: -0.03em; font-size: 1.2rem; text-decoration: none; white-space: nowrap; }
 .mark span { color: var(--accent); }
 .mark small { font-family: var(--font-mono); font-weight: 400; font-size: 0.78rem; letter-spacing: 0; color: var(--muted); margin-left: 10px; }
 .nav ul { display: flex; gap: 24px; list-style: none; margin: 0; padding: 0; font-size: 0.95rem; }
@@ -152,7 +152,7 @@ footer nav { display: flex; flex-wrap: wrap; gap: 8px 22px; }
   .nav ul .hide-sm { display: none; }
   .hero { padding: 44px 0 40px; }
 }
-@media (max-width: 480px) { .table td:first-child { white-space: normal; } .mark small { display: none; } .nav ul { gap: 14px; font-size: 0.9rem; } .nav ul .hide-xs { display: none; } }
+@media (max-width: 480px) { .table td:first-child { white-space: normal; } .mark small { display: none; } .mark { font-size: 1.05rem; } .nav ul { gap: 14px; font-size: 0.9rem; } .nav ul .hide-xs { display: none; } }
 @media print {
   .nav, .toc, footer { display: none; }
   .guide { display: block; }

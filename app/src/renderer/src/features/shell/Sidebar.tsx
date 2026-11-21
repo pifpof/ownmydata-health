@@ -73,7 +73,7 @@ export function Sidebar({ onOpenVault }: { onOpenVault: () => void }) {
       className="bg-muted drag flex w-[244px] shrink-0 flex-col border-r"
     >
       <div className={cn('px-5 pb-3', isMac ? 'pt-12' : 'pt-5')}>
-        <img src={logo} alt="Own My Data" className="h-auto w-[184px] select-none" draggable={false} />
+        <img src={logo} alt="Own My Data.Health" className="h-auto w-[184px] select-none" draggable={false} />
         {snapshot?.patientName && (
           <p className="text-muted-foreground mt-2 truncate text-[13px]">{snapshot.patientName}</p>
         )}

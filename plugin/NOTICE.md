@@ -1,6 +1,6 @@
 # Notice
 
-ownmydata is © 2026 1617289 B.C. Ltd., a British Columbia company, and is released under the MIT License (see LICENSE).
+Own My Data.Health is © 2026 1617289 B.C. Ltd., a British Columbia company, and is released under the MIT License (see LICENSE).
 
 ## Contributions
 
@@ -8,11 +8,11 @@ Contributions are accepted under the same MIT License (see CONTRIBUTING.md).
 
 ## Names
 
-"ownmydata" and the ownmydata logo identify this project. The MIT License covers the code and documentation. It does not give permission to present a fork or any other product as the official ownmydata project.
+"Own My Data.Health", its short form "ownmydata" (the plugin's name) and the Own My Data.Health logo identify this project. The MIT License covers the code and documentation. It does not give permission to present a fork or any other product as the official Own My Data.Health project.
 
 ## Not medical advice
 
-ownmydata keeps health records and reports what they say. It is not a medical device. It does not diagnose, prescribe or recommend treatment, and it is provided without warranty, as stated in the LICENSE. For urgent symptoms, contact a clinician or emergency services.
+Own My Data.Health keeps health records and reports what they say. It is not a medical device. It does not diagnose, prescribe or recommend treatment, and it is provided without warranty, as stated in the LICENSE. For urgent symptoms, contact a clinician or emergency services.
 
 ## Third-party material
 

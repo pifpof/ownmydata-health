@@ -1,4 +1,4 @@
-# ownmydata Viewer: v0 Requirements
+# Own My Data.Health Viewer: v0 Requirements
 
 **Version:** v0 (scaffold + basic navigation)
 **Date:** 2026-11-19
@@ -10,7 +10,7 @@
 
 ## 1. What this is
 
-A desktop app that opens an ownmydata health vault (the folder the plugin writes) and lets the owner browse it: episodes, conditions, medications, results, visits, documents and the rest, with links between them that work like a website.
+A desktop app that opens an Own My Data.Health health vault (the folder the plugin writes) and lets the owner browse it: episodes, conditions, medications, results, visits, documents and the rest, with links between them that work like a website.
 
 The plugin stays the only writer. The app reads; Claude writes.
 
@@ -60,9 +60,9 @@ Later launches: remembered folder still a vault -> Overview
                 folder gone or no longer a vault -> Choose vault folder, with a one-line reason
 ```
 
-**Welcome** (one screen): "ownmydata Viewer shows the health vault Claude keeps for you. It only reads the folder: nothing is changed, and nothing leaves your computer." Button: **Choose your vault folder**.
+**Welcome** (one screen): "Own My Data.Health Viewer shows the health vault Claude keeps for you. It only reads the folder: nothing is changed, and nothing leaves your computer." Button: **Choose your vault folder**.
 
-**Not a vault:** "That folder doesn't have a health vault in it. Pick the folder you chose when you set up ownmydata (it has a file called memory.md)."
+**Not a vault:** "That folder doesn't have a health vault in it. Pick the folder you chose when you set up Own My Data.Health (it has a file called memory.md)."
 
 ---
 

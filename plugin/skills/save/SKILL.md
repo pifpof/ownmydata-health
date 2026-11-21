@@ -1,11 +1,11 @@
 ---
 name: save
-description: "End-of-session write-back for the ownmydata health vault. Use whenever the person says '/save' or '/ownmydata:save', 'save this', 'wrap up', 'that's all for now', or signals a health session is ending, and when they say a problem is over ('the ear thing is sorted', 'all cleared up', 'the doctor says it's resolved'). Files anything health-related said in the session that hasn't been captured yet, brings problem hubs, indexes and logs up to date, closes a problem when the person has said it's done (writing its conclusion), and rewrites the hot-state card that the next session opens from. Asks only 'Anything I missed?'."
+description: "End-of-session write-back for the Own My Data.Health health vault. Use whenever the person says '/save' or '/ownmydata:save', 'save this', 'wrap up', 'that's all for now', or signals a health session is ending, and when they say a problem is over ('the ear thing is sorted', 'all cleared up', 'the doctor says it's resolved'). Files anything health-related said in the session that hasn't been captured yet, brings problem hubs, indexes and logs up to date, closes a problem when the person has said it's done (writing its conclusion), and rewrites the hot-state card that the next session opens from. Asks only 'Anything I missed?'."
 version: 0.1.0
 allowed-tools: [Read, Write, Edit, Bash]
 ---
 
-# ownmydata: Save
+# Own My Data.Health: Save
 
 ## What This Skill Does
 

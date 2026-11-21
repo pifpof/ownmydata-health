@@ -51,7 +51,7 @@ export function createWindow(store: SettingsStore): BrowserWindow {
     minWidth: 860,
     minHeight: 560,
     show: false,
-    title: 'ownmydata',
+    title: 'Own My Data.Health',
     backgroundColor: '#ffffff',
     ...(isMac ? { titleBarStyle: 'hiddenInset', trafficLightPosition: { x: 18, y: 18 } } : {}),
     webPreferences: {
