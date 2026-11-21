@@ -1,10 +1,8 @@
 # ownmydata
 
-**Own your health data.** A Claude plugin that keeps your health records in a folder of plain text files on your own computer, and does the filing for you.
+**We have the right to own our health data.** ownmydata was created on that one belief, and it matters more than ever in a future where AI is becoming part of how our healthcare works.
 
-Drop in a lab report, a visit note, a specialist letter or a photo of one, or just say what happened ("saw the ENT today, she ordered a hearing test"). Claude files the original, writes it up, links it to the problem it belongs to, and later answers "what happened with my ear?" with the records named.
-
-You never fill in a form. You never tag anything. You never answer a question just so a record is complete.
+Today your health story is scattered. A lab report in one portal, a specialist's letter in an email, a prescription in a drawer, a family history that lives only in your memory. Each clinic, insurer and system holds a piece, and none of them holds the whole picture. When AI starts helping with care, it will help most where the picture is complete and accurate. The question is who holds that picture. We believe it should be you.
 
 ## Why this exists
 
@@ -13,9 +11,23 @@ You never fill in a form. You never tag anything. You never answer a question ju
 3. That picture shouldn't be owned by governments, insurance companies or health providers.
 4. It's yours. You have the right to own it, and to use it however you choose.
 
-That's what this project stands for. It's open source because owning your data shouldn't depend on any one company. It gives anyone a way to start tracking their health data in a complete, structured format that is portable and usable in any other system, and, most importantly, built on the Open Knowledge Format so it's in the best shape for AI to retrieve from.
+## A community, not a product
+
+ownmydata is built by people who want the same thing: to **gather** our own health data, **keep it safe**, and **use it to get better care**. Better questions at the next appointment. A complete history when you change doctors. The right numbers in front of the right person. A picture of your health that an AI you choose can actually help with.
+
+We help each other do that. It's open source because owning your data shouldn't depend on any one company, including us. Nothing about it is locked in: if this project vanished tomorrow, your records would still be yours, and still readable.
 
 **If you believe that too, there's a place for you here, whether or not you write code.** See [Contributing](#contributing).
+
+## What it does
+
+ownmydata is a Claude plugin that keeps your health records in a folder of plain text files on your own computer, and does the filing for you.
+
+Drop in a lab report, a visit note, a specialist letter or a photo of one, or just say what happened ("saw the ENT today, she ordered a hearing test"). Claude files the original, writes it up, links it to the problem it belongs to, and later answers "what happened with my ear?" with the records named.
+
+You never fill in a form. You never tag anything. You never answer a question just so a record is complete.
+
+Your records follow HL7 FHIR R4, the standard health systems use, so they're portable to any other system. The folder follows the Open Knowledge Format, so it's in the best shape for any AI to find its way around.
 
 > **Not medical advice.** ownmydata keeps your records straight and tells you what they say. It does not diagnose, prescribe, or tell you to start, stop or change treatment. For sudden or severe symptoms it tells you to get urgent care.
 
