@@ -651,6 +651,8 @@ Skills must work with **no scripts installed** (the LLM does the work by reading
 
 ### 16.1 Plugin repository layout
 
+> **As built (0.2.1):** the plugin lives in its own folder, `plugin/` (`.claude-plugin/plugin.json`, `skills/`, `schema/`), with `.claude-plugin/marketplace.json` at the repo root pointing to it (`source: ./plugin`). The shared rules ship inside `schema/memory/reference/` rather than a separate `references/` folder. The tree below is the design target.
+
 ```
 ownmydata-health/                       open-source repo (pifpof/ownmydata-health)
 ├── .claude-plugin/plugin.json
@@ -701,7 +703,7 @@ ownmydata-health/                       open-source repo (pifpof/ownmydata-healt
 
 Example vault: a sample patient with a left-ear hearing investigation. File paths are shown above each example.
 
-> **v0.1 note (2026-11-18):** where these examples differ from the v0.1 build requirements, `fixtures/EXPECTED.md` or the vault rules in `schema/memory/reference/`, those win. In particular: lab units are kept as printed (not converted to UCUM), the October lab report is not part of the ear episode (it says "annual physical"), flags the lab didn't print stay blank, and the allow-list matches LOINC codes by name **and** unit (2345-7 and 2160-0 are mass-concentration codes, so they are not auto-applied to mmol/L or umol/L results).
+> **v0.1 note (2026-11-18):** where these examples differ from the v0.1 build requirements, `fixtures/EXPECTED.md` or the vault rules in `plugin/schema/memory/reference/`, those win. In particular: lab units are kept as printed (not converted to UCUM), the October lab report is not part of the ear episode (it says "annual physical"), flags the lab didn't print stay blank, and the allow-list matches LOINC codes by name **and** unit (2345-7 and 2160-0 are mass-concentration codes, so they are not auto-applied to mmol/L or umol/L results).
 
 ### 18.1 `memory/patient/pt-self.md`
 

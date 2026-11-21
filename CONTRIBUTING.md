@@ -13,7 +13,7 @@ Thanks for being here. ownmydata exists because people should own their health d
 |---|---|
 | Trying it out | Install it, file the fictional fixtures, and open an issue with what worked and what didn't. |
 | A developer | Pick up an issue labelled `good first issue` or `help wanted`, or propose an importer for a record format. |
-| A clinician, pharmacist or health-records person | Review `docs/architecture-spec.md` and the safety rules in `schema/CLAUDE.md`. Tell us where the model of a record is wrong. |
+| A clinician, pharmacist or health-records person | Review `docs/architecture-spec.md` and the safety rules in `plugin/schema/CLAUDE.md`. Tell us where the model of a record is wrong. |
 | Good with standards | Check FHIR R4 element names, value sets and LOINC codes in `references/code-allowlist.md`. |
 | Multilingual | Translate the skills, the vault `CLAUDE.md` and the README. |
 | A writer | Make the docs plainer. Most users will never have heard of FHIR. |
@@ -22,9 +22,10 @@ Not sure where you fit? Open an issue and say what you'd like to do.
 
 ## How the project is put together
 
-- `skills/`: the skills, one `SKILL.md` each. They are instructions Claude follows, not code.
-- `schema/`: the empty vault that `setup-health-vault` copies, including the vault `CLAUDE.md` (safety, privacy, zero-lift rules).
-- `references/`: the shared rules (file format, resource map, required-field defaults, row schemas, code allow-list, description templates), copied into each vault's `memory/reference/`.
+- `plugin/`: the plugin itself, and the only folder installers receive. Keep it to what the plugin needs: no PDFs, no large files, no app code.
+  - `plugin/skills/`: the skills, one `SKILL.md` each. They are instructions Claude follows, not code.
+  - `plugin/schema/`: the empty vault that `setup-health-vault` copies, including the vault `CLAUDE.md` (safety, privacy, zero-lift rules) and the shared rules in `memory/reference/` (file format, resource map, required-field defaults, row schemas, code allow-list, description templates).
+  - `plugin/README.md`: the plugin directory listing. Facts in it must match the root `README.md`.
 - `docs/architecture-spec.md`: why the folders, files and formats are the way they are. Read sections 1, 4 and 7 before changing a format.
 - `fixtures/`: fictional source documents and `EXPECTED.md`, the exact results each skill should produce.
 - `examples/sample-vault/`: a complete vault built from the fixtures.

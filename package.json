@@ -11,5 +11,5 @@
     "url": "https://github.com/pifpof/ownmydata-health"
   },
   "keywords": ["health", "fhir", "personal-health-record", "claude-code", "claude-cowork", "agent-skills", "skill-pack", "open-knowledge-format"],
-  "files": ["skills/", "schema/", "references/", ".claude-plugin/", "README.md", "LICENSE"]
+  "files": ["plugin/", ".claude-plugin/", "README.md", "LICENSE"]
 }

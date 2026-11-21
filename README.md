@@ -163,7 +163,7 @@ v0.2.0. Skills: `setup-health-vault`, `capture`, `intake`, `start`, `save`, `hea
 
 Planned: wearable imports into monthly ledgers, trend pages, visit-prep briefs, a question-answering skill, FHIR export and import.
 
-Design document: `docs/architecture-spec.md` (the knowledge-base architecture). Changes by version: `CHANGELOG.md`. Expected behaviour on the fictional fixtures: `fixtures/EXPECTED.md`; latest acceptance run: `tests/acceptance.md`.
+The plugin itself is the `plugin/` folder (skills, the empty vault template and the manifest); everything else in this repository is the viewer app, docs, examples and tests. Design document: `docs/architecture-spec.md` (the knowledge-base architecture). Changes by version: `CHANGELOG.md`. Expected behaviour on the fictional fixtures: `fixtures/EXPECTED.md`; latest acceptance run: `tests/acceptance.md`.
 
 ## Contributing
 
