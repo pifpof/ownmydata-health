@@ -50,7 +50,7 @@ Each record is a plain markdown file you can read. The data follows HL7 FHIR R4,
 
 ## Privacy
 
-- Full privacy policy: [ownmydata.health/legal/privacy.html](https://ownmydata.health/legal/privacy.html).
+- [Privacy](https://ownmydata.health/legal/privacy.html): our full privacy policy.
 - Your vault is a folder on your computer. The plugin contains code and an empty vault template, never anyone's real data.
 - When you give Claude a document, its contents are processed by the AI provider so it can be read, as with anything you share with Claude.
 - Claude writes your health information only into the vault: never into its own account memory, and never into a web search.

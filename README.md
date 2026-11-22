@@ -146,7 +146,7 @@ How it stays trustworthy:
 
 ## Privacy
 
-- Full privacy policy: [ownmydata.health/legal/privacy.html](https://ownmydata.health/legal/privacy.html).
+- [Privacy](https://ownmydata.health/legal/privacy.html): our full privacy policy.
 - Your vault is a folder on your computer. This repository contains code, an empty vault template and fictional examples, never anyone's real data.
 - When you give Claude a document, its contents are processed by the AI provider so it can be read, as with anything you share with Claude.
 - Claude writes your health information **only into the vault**: never into its own account memory, and never into a web search. For extra separation, run health sessions in a Claude Project with its own memory, or in an incognito chat.
