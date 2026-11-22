@@ -146,6 +146,7 @@ How it stays trustworthy:
 
 ## Privacy
 
+- Full privacy policy: [ownmydata.health/legal/privacy.html](https://ownmydata.health/legal/privacy.html).
 - Your vault is a folder on your computer. This repository contains code, an empty vault template and fictional examples, never anyone's real data.
 - When you give Claude a document, its contents are processed by the AI provider so it can be read, as with anything you share with Claude.
 - Claude writes your health information **only into the vault**: never into its own account memory, and never into a web search. For extra separation, run health sessions in a Claude Project with its own memory, or in an incognito chat.
@@ -171,7 +172,7 @@ How it stays trustworthy:
 
 ## Status
 
-v0.2.2. Skills: `setup-health-vault`, `capture`, `intake`, `start`, `save`, `health-check`, `recenter`. Reads PDFs, photos of documents, pasted text and plain sentences. Plus a read-only viewer app for macOS (`app/`).
+v0.2.3. Skills: `setup-health-vault`, `capture`, `intake`, `start`, `save`, `health-check`, `recenter`. Reads PDFs, photos of documents, pasted text and plain sentences. Plus a read-only viewer app for macOS (`app/`).
 
 Planned: wearable imports into monthly ledgers, trend pages, visit-prep briefs, a question-answering skill, FHIR export and import.
 

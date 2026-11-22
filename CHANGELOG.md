@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.3
+
+- The plugin manifest now links to the privacy policy (`privacyPolicyUrl`), and both READMEs link to it from their Privacy sections. Nothing else changed.
+
 ## 0.2.2
 
 Fixes for the Claude plugin directory's validation. Install commands are unchanged.

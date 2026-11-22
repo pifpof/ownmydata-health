@@ -1,6 +1,6 @@
 {
   "name": "ownmydata-health",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "private": true,
   "description": "Own My Data.Health: a Claude plugin that keeps a personal health vault in plain markdown, FHIR R4 in shape, Open Knowledge Format v0.2 in structure.",
   "author": "1617289 B.C. Ltd. <hello@parallel79.com> (https://ownmydata.health)",
